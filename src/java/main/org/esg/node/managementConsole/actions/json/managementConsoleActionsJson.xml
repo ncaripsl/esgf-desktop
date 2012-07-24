@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<!-- AUTHOR: CMCC -->
+
+<struts>
+
+	<package name="managementConsoleActionsJson" namespace="/managementConsoleJson" extends="json-default">
+		
+		<global-results>
+			<result name="error" type="json">
+				<param name="root">null</param>
+			</result>
+			<result name="input" type="json">
+				<param name="root">null</param>
+			</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping result="error" exception="java.lang.Exception" />
+		</global-exception-mappings>
+		
+		<action name="getProjectHostTree" class="org.esg.node.managementConsole.actions.json.LoadProjectHostTreeAction">
+			<result type="json">
+		    	<param name="root">projects</param>
+		   </result>
+		</action>
+		
+		<action name="getSpotcheckHosts" class="org.esg.node.managementConsole.actions.json.LoadSpotcheckHostsAction">
+			<result type="json">
+		    	<param name="root">hosts</param>
+		   </result>
+		</action>
+		
+		<action name="testAction" class="org.esg.node.managementConsole.actions.json.TestAction">
+			<result type="json">
+		    	<param name="root">testJson</param>
+		   </result>
+		</action>
+		
+	</package>
+	
+</struts>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<!-- AUTHOR: CMCC -->
+
+<struts>
+
+	<package name="rssfeedsActionsInputStream" namespace="/rssfeedsInputStream" extends="struts-default">
+		
+		<global-exception-mappings>
+			<exception-mapping result="error" exception="java.lang.Exception" />
+		</global-exception-mappings>
+		
+		<action name="feedProxy" class="org.esg.node.rssfeeds.actions.inputstream.FeedProxy">
+			<result name="success" type="stream">
+			  <param name="contentType">text/xml</param>
+			  <param name="inputName">outputXML</param>
+			  <param name="contentDisposition">filename="outputXML.xml"</param>
+			  <param name="bufferSize">1024</param>
+			</result>
+		</action>
+		
+		<!-- <action name="addFeed" class="rssfeeds.actions.inputstream.AddNewFeedAction">
+			<result name="success" type="stream">
+			  <param name="contentType">text/xml</param>
+			  <param name="inputName">outputXML</param>
+			  <param name="contentDisposition">filename="outputXML.xml"</param>
+			  <param name="bufferSize">1024</param>
+			</result>
+		</action> -->
+		
+	</package>
+	
+</struts>
