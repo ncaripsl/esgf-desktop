@@ -53,7 +53,11 @@ Ext.define('MyDesktop.managementConsole.views.ManagementProjectHostTreePanel', {
 
             		fn: function(view, record, item, index, event) {
                     	if(record.get('leaf') == true) {
-                    		
+                    		this.treelock=1;
+                   	    	Ext.getCmp('extSpotcheckMenu').disable();
+                	    	Ext.getCmp('ESGNodeMenu').disable();
+                	    	Ext.getCmp('ViewFileMenu').disable();
+                    		Ext.getCmp('managementProjectHostTree').setLoading(true);
                     		//Ext.getCmp('terminalPanel').enable();
           
                     		
@@ -79,6 +83,8 @@ Ext.define('MyDesktop.managementConsole.views.ManagementProjectHostTreePanel', {
                             		// mantiene la scrollbar giù
                             		var obj = document.getElementById(textArea.inputEl.id); 
         		        	        obj.scrollTop = obj.scrollHeight;
+        		        	        this.treelock=0;
+                            		Ext.getCmp('managementProjectHostTree').setLoading(false);
                         	    },
                         	    failure: function() {
                         	    	
@@ -98,6 +104,8 @@ Ext.define('MyDesktop.managementConsole.views.ManagementProjectHostTreePanel', {
                             		// mantiene la scrollbar giù
                             		var obj = document.getElementById(textArea.inputEl.id); 
         		        	        obj.scrollTop = obj.scrollHeight;
+        		        	        this.treelock=0;
+                            		Ext.getCmp('managementProjectHostTree').setLoading(false);
                         	    }
                         	});
                     	}
@@ -108,6 +116,7 @@ Ext.define('MyDesktop.managementConsole.views.ManagementProjectHostTreePanel', {
             }
 
         });
+    	this.treelock=0;
         this.callParent(arguments);
     }
 });

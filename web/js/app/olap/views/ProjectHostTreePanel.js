@@ -31,11 +31,26 @@ Ext.define('MyDesktop.olap.views.ProjectHostTreePanel', {
             	itemclick: this.hostSelection
             }
         });
+    	this.treelock=0;
         this.callParent(arguments);
     },
     hostSelection: function(view, record, item, index, event) {
     	if(record.get('leaf') == true) {
-    		
+        	this.treelock=1;
+            Ext.getCmp('olapcombo1').disable();
+            Ext.getCmp('olapcombo2').disable();
+            Ext.getCmp('olapcombo3').disable();
+            Ext.getCmp('olapcombo4').disable();
+            Ext.getCmp('olapcombo5').disable();
+            Ext.getCmp('olapbutton').disable();
+	    	Ext.getCmp('olapChartGrid').disable();
+	    	Ext.getCmp('olapCSVButton').disable();
+            Ext.getCmp('olapGridButton').disable();
+            Ext.getCmp('olapColumnChartButton').disable();
+            Ext.getCmp('olapLineChartButton').disable();
+            Ext.getCmp('olapAreaChartButton').disable();
+            
+        	Ext.getCmp('olapProjectHostTreePanel').setLoading(true);
     		// prelevo il nome dell'host selezionato
     		hostName = record.get('text');
     		
@@ -114,7 +129,8 @@ Ext.define('MyDesktop.olap.views.ProjectHostTreePanel', {
                         	Ext.ComponentManager.get('secondColumn').setText(combo1Value);
                     	}
                     });
-        	    	
+                	this.treelock=0;
+                	Ext.getCmp('olapProjectHostTreePanel').setLoading(false);
         	    },
         	    failure: function() {
         	    	Ext.getCmp('outputPanel').setTitle('Data Usage Statistics');
@@ -133,6 +149,8 @@ Ext.define('MyDesktop.olap.views.ProjectHostTreePanel', {
                     Ext.getCmp('olapcombo4').disable();
                     Ext.getCmp('olapcombo5').disable();
                     Ext.getCmp('olapbutton').disable();
+                	this.treelock=0;
+                	Ext.getCmp('olapProjectHostTreePanel').setLoading(false);
         	    }
         	});
     		
