@@ -67,7 +67,7 @@ Ext.define('MyDesktop.managementConsole.views.ManagementProjectHostTreePanel', {
                         		//url: 'http://' + newHost + ':8080/Desktop/managementConsoleJson/testAction.action',
                         		url: 'http://' + newHost + '/esgf-desktop/managementConsoleJson/testAction.action',
                         	    success: function(response){
-                        	    	Ext.getCmp('extSpotcheckMenu').enable();
+                        	    	//Ext.getCmp('extSpotcheckMenu').enable();
                         	    	Ext.getCmp('ESGNodeMenu').enable();
                         	    	Ext.getCmp('ViewFileMenu').enable();
                         	    	textArea = Ext.getCmp('terminalBox');
@@ -83,7 +83,7 @@ Ext.define('MyDesktop.managementConsole.views.ManagementProjectHostTreePanel', {
                         	    failure: function() {
                         	    	
                         	    	
-                        	    	Ext.getCmp('extSpotcheckMenu').disable();
+                        	    	//Ext.getCmp('extSpotcheckMenu').disable();
                         	    	Ext.getCmp('ESGNodeMenu').disable();
                         	    	Ext.getCmp('ViewFileMenu').disable();
                         	    

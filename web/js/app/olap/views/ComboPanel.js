@@ -104,10 +104,10 @@ Ext.define('MyDesktop.olap.views.ComboPanel', {
    	            	    store        : {
 	   	            	     fields : ['label', 'value'],
 	   	            	     data   : [
-		   	            	        {"label":"Dimension ASC", "value":"3A"},
-		   	            	        {"label":"Measure ASC", "value":"3B"},
-		   	            	        {"label":"Dimension DESC", "value":"3C"},
-		   	            	        {"label":"Measure DESC", "value":"3D"}
+		   	            	        {"label":"XAxis ASC", "value":"3A"},
+		   	            	        {"label":"YAxis ASC", "value":"3B"},
+		   	            	        {"label":"XAxis DESC", "value":"3C"},
+		   	            	        {"label":"YAxis DESC", "value":"3D"}
 		   	            	        //{"label":"I", "value":"I"}
 		   	            	    ]
 	   	            	},

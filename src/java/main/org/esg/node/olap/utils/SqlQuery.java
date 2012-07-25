@@ -25,7 +25,9 @@ public enum SqlQuery {
 		 	 "WHERE j.idUser=? " +
 		 	 "AND u.endDate IS NULL " +
 			 "ORDER BY p.id, h.id;"),
-			 
+	
+	GET_ALL_ENTRIES("SELECT * FROM esgf_dashboard.finaldw where al_id>? and al_id<=(?+?) order by al_id;"),		 
+	
 	GET_ELAPSED_TIME_IN_TIME_INTERVAL("SELECT timestamp, elapsedTime FROM esgf_dashboard.service_status WHERE timestamp BETWEEN ? AND ?;"),
 	GET_DIMENSION1_VALUE("SELECT DISTINCT dimension1 FROM download;"),
 	GET_DIMENSION2_VALUE("SELECT DISTINCT dimension2 FROM download;"),

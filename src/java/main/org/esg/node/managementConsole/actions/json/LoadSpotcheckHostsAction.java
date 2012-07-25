@@ -36,7 +36,7 @@ public class LoadSpotcheckHostsAction extends ActionSupport {
 			
 			while (rs.next()) {
 				Host host = new Host();
-				host.setId(rs.getInt("id"));
+				//host.setId(rs.getInt("id"));
 				host.setName(rs.getString("name"));
 				
 				hosts.add(host);

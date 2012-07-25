@@ -17,15 +17,17 @@ Ext.define('MyDesktop.managementConsole.views.TerminalPanel', {
                 text: 'Sanity Check'
             },
             '-',*/
-            {
+            /*new Ext.button.Button({
                 text     : 'esgf-spotcheck',
-                id       : 'extSpotcheckMenu',
                 disabled : true,
+                id       : 'extSpotcheckMenu',
                 menu     : {
-                    showSeparator: false,
-                    id    : 'spotcheckMenu'
+                    showSeparator : false
+                },
+                listeners : {
+                	click : this.esgfSpotcheckHandler
                 }
-            },
+            }),*/
             {
                 text     : 'esg-node',
                 id       : 'ESGNodeMenu',
@@ -185,5 +187,14 @@ Ext.define('MyDesktop.managementConsole.views.TerminalPanel', {
     	        obj.scrollTop = obj.scrollHeight;
     	    }
     	});
-    }
+    },
+    
+    /*esgfSpotcheckHandler: function(item) {
+    	
+    	// se il menu non ha elementi, carico lo store
+    	if(Ext.getCmp('extSpotcheckMenu').menu.items.length == 0)
+    		Ext.getStore('managementHostStore').load();
+    }*/
+    
+    
 });

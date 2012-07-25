@@ -26,7 +26,7 @@ public enum SqlQuery {
 		 	 "AND u.endDate IS NULL " +
 			 "ORDER BY p.id, h.id;"),
 	
-	GET_HOSTS("SELECT * FROM esgf_dashboard.host;");
+	GET_HOSTS("SELECT name FROM esgf_dashboard.host;");
 	
 	private final String sql;
 	

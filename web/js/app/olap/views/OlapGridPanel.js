@@ -14,8 +14,8 @@ Ext.define('MyDesktop.olap.views.OlapGridPanel', {
         this.store   = MyDesktop.olap.stores.ChartGridStore;
         this.border  = false;
         this.columns = [
-	        {header: yAxisTitle, dataIndex: 'elapsedTime', flex: 2, id: 'firstColumn'},
-	        {header: xAxisTitle, dataIndex: 'timestamp', flex: 3, id: 'secondColumn'}
+	        {header: yAxisTitle, dataIndex: 'elapsedTime', flex: 2, id: 'firstColumn' , sortable: false},
+	        {header: xAxisTitle, dataIndex: 'timestamp', flex: 3, id: 'secondColumn', sortable: false}
 	    ];
         this.callParent();
     }

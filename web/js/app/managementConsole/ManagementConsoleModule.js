@@ -26,9 +26,9 @@ Ext.define('MyDesktop.managementConsole.ManagementConsoleModule', {
         	var projectHostTreePanel = new MyDesktop.managementConsole.views.ManagementProjectHostTreePanel();
         	var terminalPanel = new MyDesktop.managementConsole.views.TerminalPanel();
         	
-        	Ext.getStore('managementHostStore').load();
+        	//Ext.getStore('managementHostStore').load();
         	
-        	Ext.getStore('managementHostStore').on('load', function(records) {
+        	/*Ext.getStore('managementHostStore').on('load', function(records) {
         		
         		for (var i=0; i<records.getTotalCount(); i++) {
         			var hostName = records.getAt(i).get('name');
@@ -61,7 +61,7 @@ Ext.define('MyDesktop.managementConsole.ManagementConsoleModule', {
 				        	        value = textArea.getValue();
 				        	        textArea.setValue(value + text + '' + currentHost + ' > ');
 				        	        
-				        	        // mantiene la scrollbar gi�
+				        	        // mantiene la scrollbar giu'
 				        	        var obj = document.getElementById(textArea.inputEl.id); 
 				        	        obj.scrollTop = obj.scrollHeight;
 				        	    }
@@ -70,7 +70,7 @@ Ext.define('MyDesktop.managementConsole.ManagementConsoleModule', {
 				    });
         		}
         		
-        	});
+        	});*/
         	win = desktop.createWindow({
             	id              : 'managementConsole-win',
                 title           : 'Management Console',

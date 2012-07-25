@@ -14,6 +14,8 @@ TAGS
 *.egg
 *#*
 *.md5
+/web/WEB-INF/
+/web/META-INF/
 semantic.cache*
 generated/
 /build
