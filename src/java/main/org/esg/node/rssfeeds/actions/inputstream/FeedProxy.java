@@ -30,22 +30,23 @@ public class FeedProxy extends ActionSupport {
 
 			String inputLine;
 			String output = "";
+			boolean checkContains1;
 
-			while ((inputLine = in.readLine()) != null)
-				output += inputLine;
-			  
+			while ((inputLine = in.readLine()) != null) {
+				if (checkContains1=inputLine.contains("<category")==false)
+					output += inputLine;
+			}
+			
 			in.close();
 						 
-			if (output.contains("<?xml version")) {
+			/*if (output.contains("<?xml version")) {
 				output = output.replaceAll("<content:encoded>", "<content>");
 				output = output.replaceAll("</content:encoded>", "</content>");
 				output = output.replaceAll("</dc:creator>", "</author>");
-				output = output.replaceAll("<dc:creator", "<author");
-  
-				outputXML = new ByteArrayInputStream(output.getBytes());
-			}
+				output = output.replaceAll("<dc:creator", "<author");			
+			}*/
 			
-			
+			outputXML = new ByteArrayInputStream(output.getBytes());
 		}
 		catch (MalformedURLException e){
 			e.printStackTrace();

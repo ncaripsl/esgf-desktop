@@ -60,13 +60,13 @@ Ext.define('MyDesktop.rssfeeds.views.FeedGrid', {
                 flex: 5,
                 autoScroll: true,
                 renderer: this.formatTitle
-            }, {
+            }, /*{
                 text: 'Link',
                 dataIndex: 'link',
                 hidden: true,
                 flex: 2
 
-            }, {
+            },*/ {
                 text: 'Date',
                 dataIndex: 'pubDate',
                 renderer: this.formatDate,

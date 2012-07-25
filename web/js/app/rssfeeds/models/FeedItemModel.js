@@ -18,9 +18,9 @@ Ext.define('MyDesktop.rssfeeds.models.FeedItemModel', {
          { name: 'enclosureurl', mapping: 'enclosure/@url' },
          'source',
          { name: 'sourceurl', mapping: 'source/@url' },
-         'guid',
-         { name: 'category', type: 'auto' },
-         { name: 'domain', mapping: 'category/@domain'}
+         'guid'
+         //{ name: 'category', type: 'auto' },
+         //{ name: 'domain', mapping: 'category/@domain'}
      ]/*,
      hasMany: [
        'Category',

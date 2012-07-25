@@ -35,7 +35,7 @@ Ext.define('MyDesktop.rssfeeds.views.FeedPost', {
             dockedItems: [this.createToolbar()],
             tpl: Ext.create('Ext.XTemplate',
                 '<div class="post-data">',
-                	'<b><a href="{link}" class="post-title">{title}</a></b>',
+                	'<b><a href="{link}" TARGET="_blank" class="post-title">{title}</a></b>',
                 	'<br>',
                 	'<br>',
                     '<span class="post-date">{pubDate:this.formatDate}</span>',
