@@ -4,6 +4,7 @@
 
 Ext.define('MyDesktop.managementConsole.views.TerminalPanel', {
 	extend   : 'Ext.panel.Panel',
+	requires : ['MyDesktop.managementConsole.stores.HostStore'],
 	
 	initComponent: function() {
 		Ext.apply(this, {
@@ -28,6 +29,20 @@ Ext.define('MyDesktop.managementConsole.views.TerminalPanel', {
                 	click : this.esgfSpotcheckHandler
                 }
             }),*/
+            {
+        		xtype        : 'combo',
+        		fieldLabel   : 'esgf-spotcheck',
+        		id           : 'extSpotcheckMenu',
+        		disabled     : true,
+        		labelWidth   : 80,
+        		store        : MyDesktop.managementConsole.stores.HostStore,
+        	    displayField : 'name',
+        	    valueField   : 'name',
+        	    emptyText    : 'Select a host...',
+        	    listeners : {
+                	select : this.esgfSpotcheckHandler
+                }
+        	},
             {
                 text     : 'esg-node',
                 id       : 'ESGNodeMenu',
@@ -182,19 +197,53 @@ Ext.define('MyDesktop.managementConsole.views.TerminalPanel', {
     	        value = textArea.getValue();
     	        textArea.setValue(value + text + currentHost + ' > ');
     	        
-    	        // mantiene la scrollbar gi�
+    	        // mantiene la scrollbar giu'
     	        var obj = document.getElementById(textArea.inputEl.id); 
     	        obj.scrollTop = obj.scrollHeight;
     	    }
     	});
     },
     
-    /*esgfSpotcheckHandler: function(item) {
+    esgfSpotcheckHandler: function(item) {
     	
-    	// se il menu non ha elementi, carico lo store
-    	if(Ext.getCmp('extSpotcheckMenu').menu.items.length == 0)
-    		Ext.getStore('managementHostStore').load();
-    }*/
+    	hostStartIndex = Ext.getCmp('terminalBox').getValue().lastIndexOf('\n');
+    	hostEndIndex = Ext.getCmp('terminalBox').getValue().lastIndexOf(' >');
+    	currentHost = Ext.getCmp('terminalBox').getValue().substring(hostStartIndex,hostEndIndex);
+    	var hostName = Ext.getCmp('extSpotcheckMenu').getValue();
+    	Ext.getCmp('extSpotcheckMenu').clearValue();
+    	
+    	var areaValue = Ext.getCmp('terminalBox').getValue();
+    	var commandLine = 'esgf-spotcheck ' + hostName;
+    	areaValue += commandLine + '\n';
+    	
+    	Ext.getCmp('terminalBox').setValue(areaValue);
+    	
+    	Ext.Ajax.request({
+		url: 'http://' + currentHost + '/esgf-desktop/managementConsoleStream/StreamLineAction.action',
+    	    params: {
+    	        commandLine: commandLine
+    	    },
+    	    success: function(response){
+    	        var text = response.responseText;
+    	        textArea = Ext.getCmp('terminalBox');
+    	        value = textArea.getValue();
+    	        textArea.setValue(value + text + '' + currentHost + ' > ');
+    	        
+    	        // mantiene la scrollbar giù
+    	        var obj = document.getElementById(textArea.inputEl.id); 
+    	        obj.scrollTop = obj.scrollHeight;
+    	    },
+    	    failure: function () { 
+    	    	textArea = Ext.getCmp('terminalBox');
+    	        value = textArea.getValue();
+    	        textArea.setValue(value + text + '' + currentHost + ' > ');
+    	        
+    	        // mantiene la scrollbar giù
+    	        var obj = document.getElementById(textArea.inputEl.id); 
+    	        obj.scrollTop = obj.scrollHeight;
+    	    }
+    	});
+    }
     
     
 });

@@ -5,7 +5,7 @@
 Ext.define('MyDesktop.managementConsole.ManagementConsoleModule', {
     extend: 'Ext.ux.desktop.Module',
     requires: ['MyDesktop.managementConsole.views.ManagementProjectHostTreePanel',
-               'MyDesktop.managementConsole.stores.HostStore',
+               //'MyDesktop.managementConsole.stores.HostStore',
                'MyDesktop.managementConsole.views.TerminalPanel'],
     id: 'managementConsole-win',
     
@@ -100,6 +100,7 @@ Ext.define('MyDesktop.managementConsole.ManagementConsoleModule', {
     	// recupero il feed tree e espando la root caricando il contenuto
     	var projectHostTree = Ext.getCmp('managementProjectHostTree');
     	projectHostTree.getRootNode().expand();
+    	Ext.getStore('managementHostStore').load();
     }
 
 });

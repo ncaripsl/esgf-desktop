@@ -18,12 +18,12 @@ Ext.define('MyDesktop.managementConsole.stores.HostStore', {
 	            type: 'json'
 	        }
 	    };
-    	this.listeners = {
+    	/*this.listeners = {
     			load: this.hostLoaded
-    	};
+    	};*/
         
     	this.callParent(arguments);
-    },
+    }/*,
     
     hostLoaded: function(records) {
     	
@@ -76,7 +76,7 @@ Ext.define('MyDesktop.managementConsole.stores.HostStore', {
 		
 		// visualizzo il menu
 		Ext.getCmp('extSpotcheckMenu').menu.show();
-    }
+    }*/
 
 
 });
