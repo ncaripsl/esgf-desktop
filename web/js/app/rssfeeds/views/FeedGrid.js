@@ -43,6 +43,7 @@ Ext.define('MyDesktop.rssfeeds.views.FeedGrid', {
             store: MyDesktop.rssfeeds.stores.FeedStore,
             viewConfig: {
                 itemId: 'view',
+                loadMask: false,
                 plugins: [{
                     pluginId: 'preview',
                     ptype: 'preview',
@@ -117,6 +118,7 @@ Ext.define('MyDesktop.rssfeeds.views.FeedGrid', {
         var store = this.store;
         store.getProxy().extraParams.feed = url;
         store.load();
+        this.setLoading(true);
     },
 
     /**

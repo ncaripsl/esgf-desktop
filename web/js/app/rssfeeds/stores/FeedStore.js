@@ -21,10 +21,18 @@ Ext.define('MyDesktop.rssfeeds.stores.FeedStore', {
         };
         this.proxy    = {
             type: 'ajax',
+            //timeout: 100,
             url: 'rssfeedsInputStream/feedProxy.action',
             reader: {
                 type: 'xml',
                 record: 'item'
+            },
+            listeners: {
+            exception: function(proxy, response) {
+            Ext.MessageBox.alert('Error message', 'Unable to process your request. Server unreachable.');
+            Ext.getCmp('feedsGridPanel').setLoading(false);
+            Ext.getStore('feedStore').loadData([], false);
+            }
             }
         };
     	this.callParent(arguments);
@@ -35,6 +43,7 @@ Ext.define('MyDesktop.rssfeeds.stores.FeedStore', {
      * @private
      */
     onLoad: function(){
+    	Ext.getCmp('feedsGridPanel').setLoading(false);
         Ext.getCmp('feedsGridPanel').getSelectionModel().select(0);
     }
 });

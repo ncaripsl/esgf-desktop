@@ -39,9 +39,10 @@ Ext.define('MyDesktop.rssfeeds.RssFeedsModule', {
     },
     
     loadContent : function(){
-    	// svuoto lo store della griglia contenuto del feed
-//    	var feedProxyStore = Ext.getStore('feedStore');
-//    	feedProxyStore.loadData([],false);
+
+    	// clear grid stores from previous content
+    	var feedProxyStore = Ext.getStore('feedStore');
+    	feedProxyStore.loadData([],false);
     	
     	// recupero il feed tree e espando la root caricando il contenuto
     	var feedTreePanel = Ext.getCmp('feedTree');

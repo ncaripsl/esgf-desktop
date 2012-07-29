@@ -139,6 +139,10 @@ Ext.define('MyDesktop.managementConsole.views.TerminalPanel', {
     
     esgNodeHandler : function(item) {
     	
+    	Ext.getCmp('extSpotcheckMenu').disable();
+    	Ext.getCmp('ESGNodeMenu').disable();
+    	Ext.getCmp('ViewFileMenu').disable();
+    	Ext.getCmp('managementProjectHostTree').disable();
     	hostStartIndex = Ext.getCmp('terminalBox').getValue().lastIndexOf('\n');
     	hostEndIndex = Ext.getCmp('terminalBox').getValue().lastIndexOf(' >');
     	currentHost = Ext.getCmp('terminalBox').getValue().substring(hostStartIndex,hostEndIndex);
@@ -154,7 +158,8 @@ Ext.define('MyDesktop.managementConsole.views.TerminalPanel', {
     	Ext.Ajax.request({
     		//url: 'http://' + currentHost + ':8080/Desktop/managementConsoleStream/StreamLineAction.action',
     		url: 'http://' + currentHost + '/esgf-desktop/managementConsoleStream/StreamLineAction.action',
-    	    params: {
+    	    //timeout: 100,
+    		params: {
     	        commandLine: commandLine
     	    },
     	    success: function(response){
@@ -166,15 +171,37 @@ Ext.define('MyDesktop.managementConsole.views.TerminalPanel', {
     	        // mantiene la scrollbar gi�
     	        var obj = document.getElementById(textArea.inputEl.id); 
     	        obj.scrollTop = obj.scrollHeight;
+    	    	Ext.getCmp('extSpotcheckMenu').enable();
+    	    	Ext.getCmp('ESGNodeMenu').enable();
+    	    	Ext.getCmp('ViewFileMenu').enable();
+    	    	Ext.getCmp('managementProjectHostTree').enable();
+    	    },
+    	    failure: function() {
+    	    	// enable toolbar
+    	        Ext.getCmp('extSpotcheckMenu').enable();
+    	    	Ext.getCmp('ESGNodeMenu').enable();
+    	    	Ext.getCmp('ViewFileMenu').enable();
+    	    	
+    	    	// enable tree
+    	    	Ext.getCmp('managementProjectHostTree').enable();
+    	    	textArea = Ext.getCmp('terminalBox');
+    	        value = textArea.getValue();
+    	        textArea.setValue(value + 'Timeout Error' + currentHost + ' > ');
     	    }
     	});
     },
     
     catHandler : function(item) {
+    	Ext.getCmp('extSpotcheckMenu').disable();
+    	Ext.getCmp('ESGNodeMenu').disable();
+    	Ext.getCmp('ViewFileMenu').disable();
+    	Ext.getCmp('managementProjectHostTree').disable();
     	
     	hostStartIndex = Ext.getCmp('terminalBox').getValue().lastIndexOf('\n');
     	hostEndIndex = Ext.getCmp('terminalBox').getValue().lastIndexOf(' >');
     	currentHost = Ext.getCmp('terminalBox').getValue().substring(hostStartIndex,hostEndIndex);
+
+
     	
     	var file = item.text;
     	
@@ -200,11 +227,32 @@ Ext.define('MyDesktop.managementConsole.views.TerminalPanel', {
     	        // mantiene la scrollbar giu'
     	        var obj = document.getElementById(textArea.inputEl.id); 
     	        obj.scrollTop = obj.scrollHeight;
+    	    	Ext.getCmp('extSpotcheckMenu').enable();
+    	    	Ext.getCmp('ESGNodeMenu').enable();
+    	    	Ext.getCmp('ViewFileMenu').enable();
+    	    	Ext.getCmp('managementProjectHostTree').enable();
+    	    },
+    	    failure: function() {
+    	    	// enable toolbar
+    	        Ext.getCmp('extSpotcheckMenu').enable();
+    	    	Ext.getCmp('ESGNodeMenu').enable();
+    	    	Ext.getCmp('ViewFileMenu').enable();
+    	    	
+    	    	// enable tree
+    	    	Ext.getCmp('managementProjectHostTree').enable();
+    	    	textArea = Ext.getCmp('terminalBox');
+    	        value = textArea.getValue();
+    	        textArea.setValue(value + 'Timeout Error' + currentHost + ' > ');
     	    }
     	});
     },
     
     esgfSpotcheckHandler: function(item) {
+    	
+    	Ext.getCmp('extSpotcheckMenu').disable();
+    	Ext.getCmp('ESGNodeMenu').disable();
+    	Ext.getCmp('ViewFileMenu').disable();
+    	Ext.getCmp('managementProjectHostTree').disable();
     	
     	hostStartIndex = Ext.getCmp('terminalBox').getValue().lastIndexOf('\n');
     	hostEndIndex = Ext.getCmp('terminalBox').getValue().lastIndexOf(' >');
@@ -232,15 +280,27 @@ Ext.define('MyDesktop.managementConsole.views.TerminalPanel', {
     	        // mantiene la scrollbar giù
     	        var obj = document.getElementById(textArea.inputEl.id); 
     	        obj.scrollTop = obj.scrollHeight;
+    	    	Ext.getCmp('extSpotcheckMenu').enable();
+    	    	Ext.getCmp('ESGNodeMenu').enable();
+    	    	Ext.getCmp('ViewFileMenu').enable();
+    	    	Ext.getCmp('managementProjectHostTree').enable();
     	    },
     	    failure: function () { 
-    	    	textArea = Ext.getCmp('terminalBox');
-    	        value = textArea.getValue();
-    	        textArea.setValue(value + text + '' + currentHost + ' > ');
+    	    	//textArea = Ext.getCmp('terminalBox');
+    	        //value = textArea.getValue();
+    	        //textArea.setValue(value + text + '' + currentHost + ' > ');
     	        
     	        // mantiene la scrollbar giù
     	        var obj = document.getElementById(textArea.inputEl.id); 
     	        obj.scrollTop = obj.scrollHeight;
+    	        Ext.getCmp('extSpotcheckMenu').enable();
+    	    	Ext.getCmp('ESGNodeMenu').enable();
+    	    	Ext.getCmp('ViewFileMenu').enable();
+    	    	Ext.getCmp('managementProjectHostTree').enable();
+    	    	Ext.getCmp('managementProjectHostTree').enable();
+    	    	textArea = Ext.getCmp('terminalBox');
+    	        value = textArea.getValue();
+    	        textArea.setValue(value + 'Timeout Error' + currentHost + ' > ');
     	    }
     	});
     }

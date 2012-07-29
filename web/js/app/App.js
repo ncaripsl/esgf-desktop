@@ -157,7 +157,7 @@ Ext.define('MyDesktop.App', {
 
         return Ext.apply(ret, {
             quickStart: [
-                { name: 'Grid Window', iconCls: 'icon-grid', module: 'managementConsole-win' }
+                { name: 'Management Console', iconCls: 'terminal', module: 'managementConsole-win' }
             ],
             trayItems: [
                 { xtype: 'trayclock', flex: 1 }

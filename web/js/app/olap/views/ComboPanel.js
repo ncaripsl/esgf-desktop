@@ -69,20 +69,20 @@ Ext.define('MyDesktop.olap.views.ComboPanel', {
 		   	            	        {"label":"PeerNode", "value":"PeerNode"},       	        
 		   	            	//      {"label":"Url", "value":"Url"},
 		   	            	//      {"label":"UrlVersion", "value":"UrlVersion"},
-		   	            	        {"label":"User (hashed)", "value":"User (hashed)"},
+		   	            	//      {"label":"User (hashed)", "value":"User (hashed)"},
 		   	            	        {"label":"User Idp", "value":"User Idp"},
 		   	            	        {"label":"Year", "value":"Year"},
 		   	            	        {"label":"YearMonth", "value":"YearMonth"},
 		   	            	        {"label":"YearMonthDay", "value":"YearMonthDay"},
-		   	            	   //     {"label":"YearMonthDayHour", "value":"YearMonthDayHour"},
+		   	            	   //   {"label":"YearMonthDayHour", "value":"YearMonthDayHour"},
 		   	            	        {"label":"Hour", "value":"Hour"},
 		   	            	        {"label":"Institute", "value":"Institute"},
 		   	            	        {"label":"Ensemble", "value":"Ensemble"},
 		   	            	        {"label":"Time Frequency", "value":"Time Frequency"},
 		   	            	        {"label":"Cmor Table", "value":"Cmor Table"},
 		   	            	        {"label":"Product", "value":"Product"},
-		   	            	        {"label":"Data Service type", "value":"Data Service type"},
-		   	            	        {"label":"Remote Client", "value":"Remote Client"}
+		   	            	        {"label":"Data Service type", "value":"Data Service type"}
+		   	            	  //    {"label":"Remote Client", "value":"Remote Client"}
 		   	            	        //{"label":"Dataset Name", "value":"Dataset Name"}
 		   	            	        
 		   	            	    ]
