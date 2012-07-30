@@ -4,7 +4,7 @@
 
 Ext.define('MyDesktop.managementConsole.ManagementConsoleModule', {
     extend: 'Ext.ux.desktop.Module',
-    requires: ['MyDesktop.managementConsole.views.ManagementProjectHostTreePanel',
+    requires: [//'MyDesktop.managementConsole.views.ManagementProjectHostTreePanel',
                //'MyDesktop.managementConsole.stores.HostStore',
                'MyDesktop.managementConsole.views.TerminalPanel'],
     id: 'managementConsole-win',
@@ -23,7 +23,7 @@ Ext.define('MyDesktop.managementConsole.ManagementConsoleModule', {
     	var desktop   = this.app.getDesktop();
     	var win       = desktop.getWindow(this.id);
         if (!win) {
-        	var projectHostTreePanel = new MyDesktop.managementConsole.views.ManagementProjectHostTreePanel();
+        	//var projectHostTreePanel = new MyDesktop.managementConsole.views.ManagementProjectHostTreePanel();
         	var terminalPanel = new MyDesktop.managementConsole.views.TerminalPanel();
         	
         	//Ext.getStore('managementHostStore').load();
@@ -80,13 +80,13 @@ Ext.define('MyDesktop.managementConsole.ManagementConsoleModule', {
                 animCollapse    : false,
                 constrainHeader : true,
                 layout          : 'fit',
-                items: [{
-                    xtype   : 'panel',
-                    layout  : 'border',
-                    border  : false,
-                    padding : 5,
-                    items: [projectHostTreePanel,terminalPanel]
-                }]
+                items: [/*{
+                    //xtype   : 'panel',
+                    //layout  : 'border',
+                    //border  : false,
+                    //padding : 5,
+                    //items: [projectHostTreePanel,terminalPanel]                	
+                }*/terminalPanel]
             });
         	
         }
@@ -98,9 +98,9 @@ Ext.define('MyDesktop.managementConsole.ManagementConsoleModule', {
     loadContent : function(){
     	
     	// recupero il feed tree e espando la root caricando il contenuto
-    	var projectHostTree = Ext.getCmp('managementProjectHostTree');
-    	projectHostTree.getRootNode().expand();
-    	Ext.getStore('managementHostStore').load();
+    	//var projectHostTree = Ext.getCmp('managementProjectHostTree');
+    	//projectHostTree.getRootNode().expand();
+    	//Ext.getStore('managementHostStore').load();
     }
 
 });

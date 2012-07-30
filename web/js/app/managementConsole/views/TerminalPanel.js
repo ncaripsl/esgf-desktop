@@ -10,7 +10,8 @@ Ext.define('MyDesktop.managementConsole.views.TerminalPanel', {
 		Ext.apply(this, {
         	region   : 'center',
         	id       : 'terminalPanel',
-            border   : true,
+            //border   : true,
+        	border   : false,
             //disabled : true,
             layout   : 'fit',
             tbar     : [/*{
@@ -33,7 +34,7 @@ Ext.define('MyDesktop.managementConsole.views.TerminalPanel', {
         		xtype        : 'combo',
         		fieldLabel   : 'esgf-spotcheck',
         		id           : 'extSpotcheckMenu',
-        		disabled     : true,
+        		//disabled     : true,
         		labelWidth   : 80,
         		store        : MyDesktop.managementConsole.stores.HostStore,
         	    displayField : 'name',
@@ -46,7 +47,7 @@ Ext.define('MyDesktop.managementConsole.views.TerminalPanel', {
             {
                 text     : 'esg-node',
                 id       : 'ESGNodeMenu',
-                disabled : true,
+                //disabled : true,
                 menu     : {
                     showSeparator: false,
                     items: [
@@ -97,7 +98,7 @@ Ext.define('MyDesktop.managementConsole.views.TerminalPanel', {
             {
                 text     : 'cat',
                 id       : 'ViewFileMenu',
-                disabled : true,
+                //disabled : true,
                 menu     : {
                     showSeparator: false,
                     items: [
@@ -120,7 +121,7 @@ Ext.define('MyDesktop.managementConsole.views.TerminalPanel', {
             	id              : 'terminalBox',
             	border          : false,
             	readOnly        : true,
-            	value           : '\nManagement Console >',
+            	value           : '\nlocalhost >',
             	fieldStyle      : 'background: #000000 0 0; color: #ffffff; font-family:"Lucida Console"',
             	enableKeyEvents : true,  // true to enable the proxying of key events for the HTML input field
             	focusOnToFront  : true,  // Specifies whether the floated component should be automatically focused when it is brought to the front.
@@ -142,7 +143,7 @@ Ext.define('MyDesktop.managementConsole.views.TerminalPanel', {
     	Ext.getCmp('extSpotcheckMenu').disable();
     	Ext.getCmp('ESGNodeMenu').disable();
     	Ext.getCmp('ViewFileMenu').disable();
-    	Ext.getCmp('managementProjectHostTree').disable();
+    	//Ext.getCmp('managementProjectHostTree').disable();
     	hostStartIndex = Ext.getCmp('terminalBox').getValue().lastIndexOf('\n');
     	hostEndIndex = Ext.getCmp('terminalBox').getValue().lastIndexOf(' >');
     	currentHost = Ext.getCmp('terminalBox').getValue().substring(hostStartIndex,hostEndIndex);
@@ -157,14 +158,15 @@ Ext.define('MyDesktop.managementConsole.views.TerminalPanel', {
     	
     	Ext.Ajax.request({
     		//url: 'http://' + currentHost + ':8080/Desktop/managementConsoleStream/StreamLineAction.action',
-    		url: 'http://' + currentHost + '/esgf-desktop/managementConsoleStream/StreamLineAction.action',
+    		//url: 'http://' + currentHost + '/esgf-desktop/managementConsoleStream/StreamLineAction.action',
+    		url: 'managementConsoleStream/StreamLineAction.action',
     	    //timeout: 100,
     		params: {
     	        commandLine: commandLine
     	    },
     	    success: function(response){
     	        var text = response.responseText;
-    	        textArea = Ext.getCmp('terminalBox');
+    	        var textArea = Ext.getCmp('terminalBox');
     	        value = textArea.getValue();
     	        textArea.setValue(value + text + currentHost + ' > ');
     	        
@@ -174,7 +176,7 @@ Ext.define('MyDesktop.managementConsole.views.TerminalPanel', {
     	    	Ext.getCmp('extSpotcheckMenu').enable();
     	    	Ext.getCmp('ESGNodeMenu').enable();
     	    	Ext.getCmp('ViewFileMenu').enable();
-    	    	Ext.getCmp('managementProjectHostTree').enable();
+    	    	//Ext.getCmp('managementProjectHostTree').enable();
     	    },
     	    failure: function() {
     	    	// enable toolbar
@@ -183,8 +185,8 @@ Ext.define('MyDesktop.managementConsole.views.TerminalPanel', {
     	    	Ext.getCmp('ViewFileMenu').enable();
     	    	
     	    	// enable tree
-    	    	Ext.getCmp('managementProjectHostTree').enable();
-    	    	textArea = Ext.getCmp('terminalBox');
+    	    	//Ext.getCmp('managementProjectHostTree').enable();
+    	    	var textArea = Ext.getCmp('terminalBox');
     	        value = textArea.getValue();
     	        textArea.setValue(value + 'Timeout Error' + currentHost + ' > ');
     	    }
@@ -195,7 +197,7 @@ Ext.define('MyDesktop.managementConsole.views.TerminalPanel', {
     	Ext.getCmp('extSpotcheckMenu').disable();
     	Ext.getCmp('ESGNodeMenu').disable();
     	Ext.getCmp('ViewFileMenu').disable();
-    	Ext.getCmp('managementProjectHostTree').disable();
+    	//Ext.getCmp('managementProjectHostTree').disable();
     	
     	hostStartIndex = Ext.getCmp('terminalBox').getValue().lastIndexOf('\n');
     	hostEndIndex = Ext.getCmp('terminalBox').getValue().lastIndexOf(' >');
@@ -213,14 +215,15 @@ Ext.define('MyDesktop.managementConsole.views.TerminalPanel', {
     	
     	Ext.Ajax.request({
     		//url: 'http://' + currentHost + ':8080/Desktop/managementConsoleStream/StreamLineAction.action',
-    		url: 'http://' + currentHost + '/esgf-desktop/managementConsoleStream/StreamLineAction.action',
+    		//url: 'http://' + currentHost + '/esgf-desktop/managementConsoleStream/StreamLineAction.action',
+    		url: 'managementConsoleStream/StreamLineAction.action',
     	    params: {
     	        commandLine: commandLine
     	    },
     	    success: function(response){
     	        var text = response.responseText;
     	        //alert ('text'+text);
-    	        textArea = Ext.getCmp('terminalBox');
+    	        var textArea = Ext.getCmp('terminalBox');
     	        value = textArea.getValue();
     	        textArea.setValue(value + text + currentHost + ' > ');
     	        
@@ -230,7 +233,7 @@ Ext.define('MyDesktop.managementConsole.views.TerminalPanel', {
     	    	Ext.getCmp('extSpotcheckMenu').enable();
     	    	Ext.getCmp('ESGNodeMenu').enable();
     	    	Ext.getCmp('ViewFileMenu').enable();
-    	    	Ext.getCmp('managementProjectHostTree').enable();
+    	    	//Ext.getCmp('managementProjectHostTree').enable();
     	    },
     	    failure: function() {
     	    	// enable toolbar
@@ -239,8 +242,8 @@ Ext.define('MyDesktop.managementConsole.views.TerminalPanel', {
     	    	Ext.getCmp('ViewFileMenu').enable();
     	    	
     	    	// enable tree
-    	    	Ext.getCmp('managementProjectHostTree').enable();
-    	    	textArea = Ext.getCmp('terminalBox');
+    	    	//Ext.getCmp('managementProjectHostTree').enable();
+    	    	var textArea = Ext.getCmp('terminalBox');
     	        value = textArea.getValue();
     	        textArea.setValue(value + 'Timeout Error' + currentHost + ' > ');
     	    }
@@ -252,7 +255,7 @@ Ext.define('MyDesktop.managementConsole.views.TerminalPanel', {
     	Ext.getCmp('extSpotcheckMenu').disable();
     	Ext.getCmp('ESGNodeMenu').disable();
     	Ext.getCmp('ViewFileMenu').disable();
-    	Ext.getCmp('managementProjectHostTree').disable();
+    	//Ext.getCmp('managementProjectHostTree').disable();
     	
     	hostStartIndex = Ext.getCmp('terminalBox').getValue().lastIndexOf('\n');
     	hostEndIndex = Ext.getCmp('terminalBox').getValue().lastIndexOf(' >');
@@ -267,13 +270,14 @@ Ext.define('MyDesktop.managementConsole.views.TerminalPanel', {
     	Ext.getCmp('terminalBox').setValue(areaValue);
     	
     	Ext.Ajax.request({
-		url: 'http://' + currentHost + '/esgf-desktop/managementConsoleStream/StreamLineAction.action',
+		//url: 'http://' + currentHost + '/esgf-desktop/managementConsoleStream/StreamLineAction.action',
+		url: 'managementConsoleStream/StreamLineAction.action',
     	    params: {
     	        commandLine: commandLine
     	    },
     	    success: function(response){
     	        var text = response.responseText;
-    	        textArea = Ext.getCmp('terminalBox');
+    	        var textArea = Ext.getCmp('terminalBox');
     	        value = textArea.getValue();
     	        textArea.setValue(value + text + '' + currentHost + ' > ');
     	        
@@ -283,24 +287,23 @@ Ext.define('MyDesktop.managementConsole.views.TerminalPanel', {
     	    	Ext.getCmp('extSpotcheckMenu').enable();
     	    	Ext.getCmp('ESGNodeMenu').enable();
     	    	Ext.getCmp('ViewFileMenu').enable();
-    	    	Ext.getCmp('managementProjectHostTree').enable();
+    	    	//Ext.getCmp('managementProjectHostTree').enable();
     	    },
     	    failure: function () { 
     	    	//textArea = Ext.getCmp('terminalBox');
     	        //value = textArea.getValue();
     	        //textArea.setValue(value + text + '' + currentHost + ' > ');
-    	        
+    	    	var textArea = Ext.getCmp('terminalBox');
+    	        value = textArea.getValue();
+    	        textArea.setValue(value + 'Timeout Error' + currentHost + ' > ');    	        
     	        // mantiene la scrollbar giù
     	        var obj = document.getElementById(textArea.inputEl.id); 
     	        obj.scrollTop = obj.scrollHeight;
     	        Ext.getCmp('extSpotcheckMenu').enable();
     	    	Ext.getCmp('ESGNodeMenu').enable();
     	    	Ext.getCmp('ViewFileMenu').enable();
-    	    	Ext.getCmp('managementProjectHostTree').enable();
-    	    	Ext.getCmp('managementProjectHostTree').enable();
-    	    	textArea = Ext.getCmp('terminalBox');
-    	        value = textArea.getValue();
-    	        textArea.setValue(value + 'Timeout Error' + currentHost + ' > ');
+    	    	//Ext.getCmp('managementProjectHostTree').enable();
+    	    	//Ext.getCmp('managementProjectHostTree').enable();
     	    }
     	});
     }

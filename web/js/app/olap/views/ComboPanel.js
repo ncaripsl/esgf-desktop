@@ -27,7 +27,7 @@ Ext.define('MyDesktop.olap.views.ComboPanel', {
    	            		xtype        : 'combo',
    	            		fieldLabel   : 'YAxis',
    	            		id           : 'olapcombo1',
-   	            		disabled     : true,
+   	            		//disabled     : true,
    	            		labelWidth   : 50,
    	            		flex         : 1,
    	            		value        : 'Number Downloads',
@@ -54,7 +54,7 @@ Ext.define('MyDesktop.olap.views.ComboPanel', {
    	            		xtype        : 'combo',
    	            		fieldLabel   : 'XAxis',
    	            		id           : 'olapcombo2',
-   	            		disabled     : true,
+   	            		//disabled     : true,
    	            		labelWidth   : 50,
    	            		flex         : 1,
    	            		value        : 'Project',
@@ -97,7 +97,7 @@ Ext.define('MyDesktop.olap.views.ComboPanel', {
    	            		xtype        : 'combo',
    	            		fieldLabel   : 'Order',
    	            		id           : 'olapcombo3',
-   	            		disabled     : true,
+   	            		//disabled     : true,
    	            		labelWidth   : 50,
    	            		flex         : 1,
    	            		value        : '3A',
@@ -124,7 +124,7 @@ Ext.define('MyDesktop.olap.views.ComboPanel', {
    	            		xtype        : 'combo',
    	            		fieldLabel   : 'Filter',
    	            		id           : 'olapcombo4',
-   	            		disabled     : true,
+   	            		//disabled     : true,
    	            		labelWidth   : 50,
    	            		flex         : 1,
    	            		value        : '4A',
@@ -146,7 +146,7 @@ Ext.define('MyDesktop.olap.views.ComboPanel', {
    	            		xtype        : 'combo',
    	            		fieldLabel   : 'Source',
    	            		id           : 'olapcombo5',
-   	            		disabled     : true,
+   	            		//disabled     : true,
    	            		labelWidth   : 50,
    	            		flex         : 1,
    	            		value        : '5A',
@@ -169,7 +169,7 @@ Ext.define('MyDesktop.olap.views.ComboPanel', {
    	            	},{
    	            		xtype : 'button',
    	            		text  : 'Display',
-   	            		disabled     : true,
+   	            		//disabled     : true,
    	            		id       : 'olapbutton',
    	            		flex  : 1,
    	            		listeners: {
@@ -186,10 +186,10 @@ Ext.define('MyDesktop.olap.views.ComboPanel', {
     },
     
     display: function() {
-    	if (Ext.getCmp('olapProjectHostTreePanel').getSelectionModel().getSelection().length != 0 && Ext.getCmp('olapProjectHostTreePanel').getSelectionModel().getSelection()[0].get('leaf')) {
+    	//if (Ext.getCmp('olapProjectHostTreePanel').getSelectionModel().getSelection().length != 0 && Ext.getCmp('olapProjectHostTreePanel').getSelectionModel().getSelection()[0].get('leaf')) {
     		
     		// prelevo il nome dell'host selezionato
-    		var hostName = Ext.getCmp('olapProjectHostTreePanel').getSelectionModel().getSelection()[0].get('text');
+    		//var hostName = Ext.getCmp('olapProjectHostTreePanel').getSelectionModel().getSelection()[0].get('text');
     		
     		// prelevo il contenuto delle combo boxes
     		var combo1Value = Ext.getCmp('olapcombo1').getValue();
@@ -202,7 +202,8 @@ Ext.define('MyDesktop.olap.views.ComboPanel', {
             Ext.getStore('olapChartGridStore').setProxy({
  		    	type: 'ajax',
  		    	//url: 'http://' + hostName + ':8080/Desktop/olapJson/getElapsedTime',
- 		    	url: 'http://' + hostName + '/esgf-desktop/olapJson/getElapsedTime',
+ 		    	//url: 'http://' + hostName + '/esgf-desktop/olapJson/getElapsedTime',
+ 		    	url: 'olapJson/getElapsedTime',
  		    	//url: 'http://192.168.250.138:8080/Desktop/olapJson/getElapsedTime',
  		        reader: {
  		            type: 'json'
@@ -255,8 +256,8 @@ Ext.define('MyDesktop.olap.views.ComboPanel', {
             		}
             });
             
-    	}
-    	else
-    		Ext.MessageBox.alert('Alert Message','Please, select a P2P node.');
+    	//}
+    	//else
+    	//	Ext.MessageBox.alert('Alert Message','Please, select a P2P node.');
     }
 });

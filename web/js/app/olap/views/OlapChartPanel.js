@@ -8,7 +8,7 @@ Ext.define('MyDesktop.olap.views.OlapChartPanel', {
     requires : ['MyDesktop.olap.stores.ChartGridStore'],
     
     constructor: function() {
-        this.callParent([{theme: 'Purple'}]);
+        this.callParent([{theme: 'Blue'}]);
     },
 
     initComponent : function() {
