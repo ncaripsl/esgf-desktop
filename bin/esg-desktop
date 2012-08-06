@@ -197,10 +197,7 @@ setup_desktop() {
 }
 
 desktop_startup_hook() {
-    echo -n "Desktop Startup Hook... "
-    local target_properties_file=${esg_config_dir}/messages.properties
-    #always change the footer to match the current version
-    [ -e "${target_properties_file}" ] && sed -i 's#^[ ]*\(esgf.footer.version=\).*$#\1'${script_version:1}'  [desktop-'${esgf_desktop_version}']#' ${target_properties_file} && echo ":-)" || echo ":-("
+    echo -n "Desktop Startup Hook... :-)"
 }
 
 post_desktop_install() {
