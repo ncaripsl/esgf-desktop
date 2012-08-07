@@ -172,8 +172,6 @@ setup_desktop() {
     popd >& /dev/null
     #----------------------------
 
-    set_redirect ${desktop_context_root}
-
     popd >& /dev/null
 
     #Set up the default content
@@ -197,7 +195,7 @@ setup_desktop() {
 }
 
 desktop_startup_hook() {
-    echo -n "Desktop Startup Hook... :-)"
+    echo "Desktop Startup Hook... :-)"
 }
 
 post_desktop_install() {
