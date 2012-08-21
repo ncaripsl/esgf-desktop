@@ -165,15 +165,24 @@ public class LoadElapsedTimeAction extends ActionSupport {
 		if (combo2Value.equals("Dataset Name"))
 			dimension = "datasetname";	
 		
-		if (combo2Value.equals("UrlVersion"))
+		/*if (combo2Value.equals("UrlVersion"))
 			dimension = " (url || '-' ||  mv) ";
 		if (combo2Value.equals("YearMonth"))
 			dimension = " (CAST(year as varchar ) || '/'  ||  CAST(month as varchar)) ";
 		if (combo2Value.equals("YearMonthDay"))
 			dimension = " (CAST(year as varchar ) || '/'  ||  CAST(month as varchar) || '/' || CAST(day as varchar)) ";
 		if (combo2Value.equals("YearMonthDayHour"))
-			dimension = " (CAST(year as varchar ) || '/'  ||  CAST(month as varchar) || '/' || CAST(day as varchar) || ' ' || CAST(hour as varchar)) || ':00' ";		
-		
+			dimension = " (CAST(year as varchar ) || '/'  ||  CAST(month as varchar) || '/' || CAST(day as varchar) || ' ' || CAST(hour as varchar)) || ':00' ";*/
+
+		if (combo2Value.equals("UrlVersion"))
+			dimension = " (url || '-' || substr(to_char(mv,'099'),3) ) ";
+		if (combo2Value.equals("YearMonth"))
+			dimension = " (to_char(year,'9999') || '/' || substr(to_char(month,'099'),3)) ";
+		if (combo2Value.equals("YearMonthDay"))
+			dimension = " (to_char(year,'9999') || '/' || substr(to_char(month,'099'),3) || '/' || substr(to_char(day,'099'),3)) ";
+		if (combo2Value.equals("YearMonthDayHour"))
+			dimension = " (to_char(year,'9999') || '/' || substr(to_char(month,'099'),3) || '/' || substr(to_char(day,'099'),3) || ' ' || substr(to_char(hour,'099'),3) || ':00')  ";
+
 		if (combo3Value.equals("3A"))
 			orderbyfield=" dimension ASC ";
 		else if (combo3Value.equals("3B"))
