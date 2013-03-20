@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 
 import org.esg.node.olap.beans.ServiceStatus;
-import org.esg.node.olap.utils.CsvWriter;
+import org.esg.node.generalUtils.CsvWriter;
 import org.esg.node.olap.utils.SqlQuery;
 
 import com.opensymphony.xwork2.ActionSupport;

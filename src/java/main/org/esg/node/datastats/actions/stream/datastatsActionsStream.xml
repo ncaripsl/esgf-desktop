@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<!-- AUTHOR: CMCC -->
+
+<struts>
+
+	<package name="datastatsActionsStream" namespace="/datastatsActionsStream" extends="struts-default">
+		
+		<global-exception-mappings>
+			<exception-mapping result="error" exception="java.lang.Exception" />
+		</global-exception-mappings>
+		
+		<action name="DatastatsCSVAction" class="org.esg.node.datastats.actions.stream.DatastatsCSVAction">
+			<result name="success" type="stream">
+			  <param name="contentType">text/csv</param>
+			  <param name="inputName">stream</param>
+			  <param name="contentDisposition">filename="data_statistics.txt"</param>
+			  <param name="bufferSize">1024</param>
+			</result>
+		</action>
+		
+		<action name="DatastatsXMLAction" class="org.esg.node.datastats.actions.stream.DataStatsXMLAction">
+			<result type="xslt">
+			  <param name="location">xsl/dataStatistics.xslt</param>
+			  <param name="exposedValue">{stats}</param>
+			</result>
+		</action>
+		
+	</package>
+	
+</struts>

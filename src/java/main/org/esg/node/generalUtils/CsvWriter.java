@@ -1,4 +1,4 @@
-package org.esg.node.olap.utils;
+package org.esg.node.generalUtils;
 
 /*
  * Java CSV is a stream based library for reading and writing

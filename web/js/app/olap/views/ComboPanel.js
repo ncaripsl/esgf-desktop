@@ -67,14 +67,14 @@ Ext.define('MyDesktop.olap.views.ComboPanel', {
 		   	            	        {"label":"Realm", "value":"Realm"},
 		   	            	        {"label":"Variable", "value":"Variable"},
 		   	            	        {"label":"PeerNode", "value":"PeerNode"},       	        
-		   	            	//      {"label":"Url", "value":"Url"},
-		   	            	//      {"label":"UrlVersion", "value":"UrlVersion"},
-		   	            	//      {"label":"User (hashed)", "value":"User (hashed)"},
+		   	            	//        {"label":"Url", "value":"Url"},
+		   	            	//        {"label":"UrlVersion", "value":"UrlVersion"},
+		   	            	//        {"label":"User (hashed)", "value":"User (hashed)"},
 		   	            	        {"label":"User Idp", "value":"User Idp"},
 		   	            	        {"label":"Year", "value":"Year"},
 		   	            	        {"label":"YearMonth", "value":"YearMonth"},
 		   	            	        {"label":"YearMonthDay", "value":"YearMonthDay"},
-		   	            	   //   {"label":"YearMonthDayHour", "value":"YearMonthDayHour"},
+		   	            //	        {"label":"YearMonthDayHour", "value":"YearMonthDayHour"},
 		   	            	        {"label":"Hour", "value":"Hour"},
 		   	            	        {"label":"Institute", "value":"Institute"},
 		   	            	        {"label":"Ensemble", "value":"Ensemble"},
@@ -82,9 +82,8 @@ Ext.define('MyDesktop.olap.views.ComboPanel', {
 		   	            	        {"label":"Cmor Table", "value":"Cmor Table"},
 		   	            	        {"label":"Product", "value":"Product"},
 		   	            	        {"label":"Data Service type", "value":"Data Service type"}
-		   	            	  //    {"label":"Remote Client", "value":"Remote Client"}
-		   	            	        //{"label":"Dataset Name", "value":"Dataset Name"}
-		   	            	        
+		   	            //	        {"label":"Remote Client", "value":"Remote Client"},
+		   	            //	        {"label":"Dataset Name", "value":"Dataset Name"}           	        
 		   	            	    ]
 	   	            	},
    	            	    queryMode    : 'local',
@@ -219,8 +218,76 @@ Ext.define('MyDesktop.olap.views.ComboPanel', {
     		    }
     		});
             
+            // if chart is visible, set loading mask              
+            if(Ext.getCmp('olapchart')) {                         
+            Ext.getCmp('olapchart').setLoading(true);         
+            }                                                             
+            
             // su 'onLoad' dello store, abilito i pulsanti e mostro il grafico
             Ext.getStore('olapChartGridStore').on('load', function(records) {
+                if (records.getTotalCount() > 1) {
+                        Ext.getCmp('olapCSVButton').enable();
+                        Ext.getCmp('olapGridButton').enable();
+                        if (combo2Value=='Url' || combo2Value=='UrlVersion' || combo2Value=='User (hashed)' || combo2Value=='YearMonthDayHour' || combo2Value=='Remote Client' || combo2Value=='Dataset Name') {
+                        Ext.getCmp('olapGridButton').toggle(true);
+                        Ext.getCmp('olapColumnChartButton').disable();
+                            Ext.getCmp('olapLineChartButton').disable();
+                            Ext.getCmp('olapAreaChartButton').disable();
+                        }
+                        else {
+                        Ext.getCmp('olapColumnChartButton').enable();
+                            Ext.getCmp('olapLineChartButton').enable();
+                            Ext.getCmp('olapAreaChartButton').enable();
+                        }
+           }
+                // line e area chart non funzionano per un solo elemento
+                // quindi li disabilito
+                else if (records.getTotalCount() == 1) {
+                Ext.getCmp('olapCSVButton').enable();
+                        Ext.getCmp('olapGridButton').enable();
+                if (combo2Value=='Url' || combo2Value=='UrlVersion' || combo2Value=='User (hashed)' || combo2Value=='YearMonthDayHour' || combo2Value=='Remote Client' || combo2Value=='Dataset Name') {
+                Ext.getCmp('olapGridButton').toggle(true);
+                        Ext.getCmp('olapColumnChartButton').disable();
+                            Ext.getCmp('olapLineChartButton').disable();
+                            Ext.getCmp('olapAreaChartButton').disable();
+                        }
+                        else {
+//                        alert(Ext.getCmp('olapGridButton').pressed);
+                        Ext.getCmp('olapColumnChartButton').enable();
+                        if (!Ext.getCmp('olapGridButton').pressed)
+                        Ext.getCmp('olapColumnChartButton').toggle(true);
+                            Ext.getCmp('olapLineChartButton').disable();
+                            Ext.getCmp('olapAreaChartButton').disable();
+                        }
+                }
+//                            else if (records.getTotalCount() == 0) {
+//                            alert('No data');
+//                            }
+
+                
+                // se la modalità di rappresentazione selezionata è quella del grafico
+                // elimino la modalità hidden
+                if(Ext.getCmp('olapchart')) {
+                Ext.getCmp('olapchart').show();
+                Ext.getCmp('olapchart').setLoading(false);
+                Ext.getCmp('olapChartGrid').enable();
+
+                    
+                    // modifico i titoli degli assi con il contenuto delle combo
+                xAxisTitle = combo2Value;
+                yAxisTitle = combo1Value;
+                    Ext.getCmp('olapchart').axes.get('bottom').setTitle(xAxisTitle);
+                    Ext.getCmp('olapchart').axes.get('left').setTitle(yAxisTitle);
+                }
+                else if (Ext.getCmp('olapgrid')) {
+                Ext.ComponentManager.get('firstColumn').setText(combo1Value);
+                    Ext.ComponentManager.get('secondColumn').setText(combo2Value);
+                }
+
+                
+                }, this, {single: true});
+            
+            /*Ext.getStore('olapChartGridStore').on('load', function(records) {
             	if (records.getTotalCount() > 1) {
                     Ext.getCmp('olapCSVButton').enable();
                     Ext.getCmp('olapGridButton').enable();
@@ -242,6 +309,7 @@ Ext.define('MyDesktop.olap.views.ComboPanel', {
             	// elimino la modalit� hidden
             	if(Ext.getCmp('olapchart')) {
             		Ext.getCmp('olapchart').show();
+            		Ext.getCmp('olapchart').setLoading(false);     
             		Ext.getCmp('olapChartGrid').enable();
                 	
                 	// modifico i titoli degli assi con il contenuto delle combo
@@ -254,7 +322,7 @@ Ext.define('MyDesktop.olap.views.ComboPanel', {
             		 Ext.ComponentManager.get('firstColumn').setText(combo1Value);
             		 Ext.ComponentManager.get('secondColumn').setText(combo2Value);
             		}
-            });
+            });*/
             
     	//}
     	//else

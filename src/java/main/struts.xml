@@ -23,6 +23,10 @@
 	<include file="org/esg/node/olap/actions/json/olapActionsJson.xml" />
 	<include file="org/esg/node/olap/actions/stream/olapActionsStream.xml" />
 	
+	<!-- DATASTATS -->
+	<include file="org/esg/node/datastats/actions/json/datastatsActionsJson.xml" />
+	<include file="org/esg/node/datastats/actions/stream/datastatsActionsStream.xml" />
+	
 	<!-- MANAGEMENTCONSOLE -->
 	<include file="org/esg/node/managementConsole/actions/json/managementConsoleActionsJson.xml" />
 	<include file="org/esg/node/managementConsole/actions/stream/managementConsoleActionsStream.xml" />

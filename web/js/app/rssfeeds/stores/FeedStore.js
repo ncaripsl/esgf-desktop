@@ -32,6 +32,10 @@ Ext.define('MyDesktop.rssfeeds.stores.FeedStore', {
             Ext.MessageBox.alert('Error message', 'Unable to process your request. Server unreachable.');
             Ext.getCmp('feedsGridPanel').setLoading(false);
             Ext.getStore('feedStore').loadData([], false);
+            if(Ext.getCmp('southfeed').items.getAt(0))                        // <--- new
+               Ext.getCmp('southfeed').items.getAt(0).update('');        // <--- new
+            else if(Ext.getCmp('eastfeed').items.getAt(0))                    // <--- new
+               Ext.getCmp('eastfeed').items.getAt(0).update('');         // <--- new
             }
             }
         };

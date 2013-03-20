@@ -172,7 +172,8 @@ Ext.define('MyDesktop.rssfeeds.views.FeedDetail', {
      */
     createSouth: function(){
         this.south =  Ext.create('Ext.container.Container', {
-            layout: 'fit',
+        	id: 'southfeed', 
+        	layout: 'fit',
             region: 'south',
             split: true,
             flex: 2,
@@ -189,7 +190,8 @@ Ext.define('MyDesktop.rssfeeds.views.FeedDetail', {
      */
     createEast: function(){
         this.east =  Ext.create('Ext.panel.Panel', {
-            layout: 'fit',
+        	id: 'eastfeed',           // <--- new
+        	layout: 'fit',
             region: 'east',
             flex: 1,
             split: true,

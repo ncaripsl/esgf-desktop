@@ -40,7 +40,7 @@ Ext.define('MyDesktop.App', {
 //        
 //        'MyDesktop.tree_combo_tabs.TreeComboTabsModule',
         'MyDesktop.olap.OlapModule',
-        
+        'MyDesktop.datastats.DatastatsModule',
 //        'MyDesktop.terminal.TerminalModule',
 //        'MyDesktop.video.VideoWindow',
 //        'MyDesktop.portal.PortalModule',
@@ -77,7 +77,7 @@ Ext.define('MyDesktop.App', {
 //
 //            new MyDesktop.tree_combo_tabs.TreeComboTabsModule(),
             new MyDesktop.olap.OlapModule(),
-            
+            new MyDesktop.datastats.DatastatsModule(),
 //            new MyDesktop.video.VideoWindow(),
 //            new MyDesktop.portal.PortalModule(),
 //            new MyDesktop.spotcheck.SpotcheckModule(),
@@ -111,6 +111,7 @@ Ext.define('MyDesktop.App', {
                     { name: 'Download Statistics', iconCls: 'olap-shortcut', module: 'olap-win'},
                     { name: 'Management Console', iconCls: 'terminal-shortcut', module: 'managementConsole-win'},
                     { name: 'Rss Feed Viewer', iconCls: 'rssfeeds-shortcut', module: 'rssfeeds-win'},
+                    { name: 'Data Statistics', iconCls: 'datastats-shortcut', module: 'datastats-win'},
                     { name: 'Twitter', iconCls: 'twitter-win-shortcut', module: 'twit-win' }
 //                    { name: 'System Status', iconCls: 'cpu-shortcut', module: 'systemstatus'},
 //                    { name: 'Google Map', iconCls: 'gmap-shortcut', module: 'gmap-win' }
@@ -139,14 +140,14 @@ Ext.define('MyDesktop.App', {
                         iconCls:'settings',
                         handler: me.onSettings,
                         scope: me
-                    },
+                    }/*,
                     '-',
                     {
                         text:'Logout',
                         iconCls:'logout',
                         handler: me.onLogout,
                         scope: me
-                    }
+                    }*/
                 ]
             }
         });

@@ -397,4 +397,11 @@
 .olap-shortcut {
 	background-image:url(../../img/olap/chart48x48.png) !important;
 }
+.datastats {
+background-image:url(../../img/datastats/kchart_20x20.png) !important;
+}
+.datastats-shortcut {
+background-image:url(../../img/datastats/kchart_48x48.png) !important;
+}
+
 /** END **/
