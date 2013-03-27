@@ -34,7 +34,7 @@ public class LoadDataStatsAction extends ActionSupport {
 		String measure = "";
 		String dimension = "";
 		String orderbyfield = "";
-		String fromstm = "esgf_dashboard.planb_metrics";
+		String fromstm = "esgf_dashboard.finaldw_planb";
 		
 		if (datastatsmetric.equals("Number Downloads"))
 			measure = "SUM(downloads)";
