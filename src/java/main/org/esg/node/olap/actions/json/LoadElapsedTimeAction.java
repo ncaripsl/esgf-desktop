@@ -217,9 +217,9 @@ public class LoadElapsedTimeAction extends ActionSupport {
 		System.out.println("Where : " + wherestm);	
 		
 		if (combo5Value.equals("5A") || combo5Value.equals("5B"))
-				fromstm = "esgf_dashboard.finaldw ";
+				fromstm = "esgf_dashboard.finaldw_planB ";
 		else
-			fromstm = "esgf_dashboard.federationdw ";
+			fromstm = "esgf_dashboard.federationdw_planB ";
 		System.out.println("From : " + fromstm);
 		query = "Select " + dimension + " as dimension," + measure + "as measure from " + fromstm + wherestm + " group by dimension order by "+ orderbyfield;
 		
@@ -261,7 +261,7 @@ public class LoadElapsedTimeAction extends ActionSupport {
 			rs.close();
 			stmt.close();
 		} catch(SQLException e) {
-			System.out.println("Errore");
+			System.out.println("Query Error!");
 			return ERROR;
 		} finally {
 			if(conn != null) conn.close();

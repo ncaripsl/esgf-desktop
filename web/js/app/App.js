@@ -39,7 +39,7 @@ Ext.define('MyDesktop.App', {
 //        'MyDesktop.tree_tabs_grid.TreeTabsGridModule',
 //        
 //        'MyDesktop.tree_combo_tabs.TreeComboTabsModule',
-        'MyDesktop.olap.OlapModule',
+//        'MyDesktop.olap.OlapModule',
         'MyDesktop.datastats.DatastatsModule',
 //        'MyDesktop.terminal.TerminalModule',
 //        'MyDesktop.video.VideoWindow',
@@ -76,7 +76,7 @@ Ext.define('MyDesktop.App', {
 //            new MyDesktop.tree_tabs_grid.TreeTabsGridModule(),
 //
 //            new MyDesktop.tree_combo_tabs.TreeComboTabsModule(),
-            new MyDesktop.olap.OlapModule(),
+//            new MyDesktop.olap.OlapModule(),
             new MyDesktop.datastats.DatastatsModule(),
 //            new MyDesktop.video.VideoWindow(),
 //            new MyDesktop.portal.PortalModule(),
@@ -106,12 +106,12 @@ Ext.define('MyDesktop.App', {
                 model: 'Ext.ux.desktop.ShortcutModel',
                 data: [
                     { name: 'Dashboard', iconCls: 'dash-win-shortcut', module: 'dash-win' },
+                    { name: 'CMIP5 Data Statistics', iconCls: 'datastats-shortcut', module: 'datastats-win'},
 //                    { name: 'Grid', iconCls: 'grid-shortcut', module: 'grid-win' },
 //                    { name: 'Chart', iconCls: 'chart-shortcut', module: 'chart-win'},
-                    { name: 'Download Statistics', iconCls: 'olap-shortcut', module: 'olap-win'},
+//                    { name: 'Download Statistics', iconCls: 'olap-shortcut', module: 'olap-win'},
                     { name: 'Management Console', iconCls: 'terminal-shortcut', module: 'managementConsole-win'},
                     { name: 'Rss Feed Viewer', iconCls: 'rssfeeds-shortcut', module: 'rssfeeds-win'},
-                    { name: 'Data Statistics', iconCls: 'datastats-shortcut', module: 'datastats-win'},
                     { name: 'Twitter', iconCls: 'twitter-win-shortcut', module: 'twit-win' }
 //                    { name: 'System Status', iconCls: 'cpu-shortcut', module: 'systemstatus'},
 //                    { name: 'Google Map', iconCls: 'gmap-shortcut', module: 'gmap-win' }

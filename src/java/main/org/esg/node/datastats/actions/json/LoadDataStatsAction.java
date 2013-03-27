@@ -43,7 +43,7 @@ public class LoadDataStatsAction extends ActionSupport {
 		else if (datastatsmetric.equals("Number Users"))
 			measure = "SUM(users)";
 		else if (datastatsmetric.equals("Downloaded Data (GBytes)"))
-			measure = "SUM(gb)";
+			measure = " SUM(gb) ";
 		else if (datastatsmetric.equals("Downloaded Data (TBytes)"))
 			measure = "SUM(cast(gb as double precision))/1024";
 		
@@ -63,10 +63,12 @@ public class LoadDataStatsAction extends ActionSupport {
 		else if (datastatsorder.equals("3D"))
 			orderbyfield="measure DESC";
 		
-		/*if (datastatssource.equals("5B"))
-			fromstm=" dimension ASC ";
+		if (datastatssource.equals("5B"))
+			fromstm=" esgf_dashboard.finaldw_planB ";
 		else if (datastatssource.equals("5D"))
-			fromstm=" measure ASC";*/
+			fromstm=" esgf_dashboard.federationdw_planB ";
+		
+		System.out.println("From : " + fromstm);	
 		
 		String query = "SELECT " + dimension + " AS dimension, " + measure + " AS measure FROM " + fromstm + " GROUP BY dimension ORDER BY " + orderbyfield;
 		
