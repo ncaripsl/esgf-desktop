@@ -23,6 +23,9 @@
 	<include file="org/esg/node/olap/actions/json/olapActionsJson.xml" />
 	<include file="org/esg/node/olap/actions/stream/olapActionsStream.xml" />
 	
+	<!-- REALTIME -->
+	<include file="org/esg/node/realtime/actions/json/realtimeLoadAvgActionsJson.xml" />
+	
 	<!-- DATASTATS -->
 	<include file="org/esg/node/datastats/actions/json/datastatsActionsJson.xml" />
 	<include file="org/esg/node/datastats/actions/stream/datastatsActionsStream.xml" />

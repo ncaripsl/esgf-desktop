@@ -403,5 +403,10 @@ background-image:url(../../img/datastats/kchart_20x20.png) !important;
 .datastats-shortcut {
 background-image:url(../../img/datastats/kchart_48x48.png) !important;
 }
-
+.realtime {
+background-image:url(../../img/realtime/realtime20x20.gif) !important;
+}
+.realtime-shortcut {
+background-image:url(../../img/realtime/realtime-shortcut48x48.gif) !important;
+}
 /** END **/

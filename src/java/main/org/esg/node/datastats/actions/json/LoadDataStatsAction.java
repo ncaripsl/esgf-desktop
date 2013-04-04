@@ -73,6 +73,7 @@ public class LoadDataStatsAction extends ActionSupport {
 		String query = "SELECT " + dimension + " AS dimension, " + measure + " AS measure FROM " + fromstm + " GROUP BY dimension ORDER BY " + orderbyfield;
 		
 		System.out.println("query: " + query);
+		//System.out.println("DASHBOARD_SERVICE_PATH: " + Constants.DASHBOARD_SERVICE_PATH);
 		
 		Connection conn = null;
 		try {
