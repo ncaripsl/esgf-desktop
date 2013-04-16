@@ -17,14 +17,26 @@
 	
 	<!-- RSSFEED -->
 	<include file="org/esg/node/rssfeeds/actions/inputstream/rssfeedsActionsInputStream.xml" />
-	<include file="org/esg/node/rssfeeds/actions/json/rssfeedsActionsJson.xml" />
+	<include file="org/esg/node/rssfeeds/actions/json/rssfeedsActionsJson.xml" /> 
 	
 	<!-- OLAPMODULE -->
 	<include file="org/esg/node/olap/actions/json/olapActionsJson.xml" />
 	<include file="org/esg/node/olap/actions/stream/olapActionsStream.xml" />
 	
-	<!-- REALTIME -->
-	<include file="org/esg/node/realtime/actions/json/realtimeLoadAvgActionsJson.xml" />
+	<!-- REALTIME 
+	<include file="org/esg/node/realtime/actions/json/realtimeLoadAvgActionsJson.xml" />-->
+
+	<!-- REALTIME CPU-->
+	<include file="org/esg/node/realtimeCpu/actions/json/realtimeLoadAvgActionsJson.xml" />
+	
+	<!-- REALTIME MEMORY -->
+	<include file="org/esg/node/realtimeMemory/actions/json/realtimeMemoryActionsJson.xml" />
+	
+	<!-- REALTIME SWAP -->
+	<include file="org/esg/node/realtimeSwap/actions/json/realtimeSwapActionsJson.xml" />
+	
+	<!-- MULTIMEDIA -->
+	<include file="org/esg/node/multimedia/actions/json/multimediaActionsJson.xml" />
 	
 	<!-- DATASTATS -->
 	<include file="org/esg/node/datastats/actions/json/datastatsActionsJson.xml" />

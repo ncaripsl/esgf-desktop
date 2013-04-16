@@ -409,4 +409,44 @@ background-image:url(../../img/realtime/realtime20x20.gif) !important;
 .realtime-shortcut {
 background-image:url(../../img/realtime/realtime-shortcut48x48.gif) !important;
 }
+.realtimeCpu {
+       background-image:url(../../img/realtimeCpu/cpu_20x20.png) !important;
+}
+.realtimeCpu-shortcut {
+       background-image:url(../../img/realtimeCpu/cpu_48x48.png) !important;
+}
+.realtimeMemory {
+        background-image:url(../../img/realtimeMemory/memory_20x20.png) !important;
+}
+.realtimeMemory-shortcut {
+        background-image:url(../../img/realtimeMemory/memory_48x48.png) !important;
+}
+.realtimeSwap {
+        background-image:url(../../img/realtimeMemory/memory_20x20.png) !important;
+}
+.realtimeSwap-shortcut {
+        background-image:url(../../img/realtimeMemory/memory_48x48.png) !important;
+}
+.multimedia {
+        background-image:url(../../img/multimedia/multimedia_16x16.png) !important;
+        position: relative;
+        top: -1px;
+}
+.multimedia-shortcut {
+        background-image:url(../../img/multimedia/multimedia_48x48.png) !important;
+}
+.web-multimedia {
+        background-image: url(../../img/multimedia/Globe.png ) !important;
+}
+.img-multimedia {
+        background-image: url(../../img/multimedia/kpaint.png ) !important;
+}
+.video-multimedia {
+        background-image: url(../../img/multimedia/YouTube.png ) !important;
+}
+.twitter-multimedia {
+        background-image: url(../../img/multimedia/Twitter.png ) !important;
+}
+
+
 /** END **/
