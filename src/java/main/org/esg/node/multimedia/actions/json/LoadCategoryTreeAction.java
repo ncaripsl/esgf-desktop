@@ -26,7 +26,18 @@ public class LoadCategoryTreeAction extends ActionSupport {
 //			System.out.println(url);
 			
 			//String path = "/home/paolanassisi/workspaceESGFdesktop/esgf-desktop/resources/multimediacategories.txt";
-			String path = Constants.DASHBOARD_SERVICE_PATH +"/multimedia.txt";
+			//String path = Constants.DASHBOARD_SERVICE_PATH +"/multimedia.txt";
+			
+			String path = System.getenv("ESGF_HOME");
+			
+			//String path = "/esg/config";
+			if (path == null)
+				path = "/esg/config/";
+			
+			path = path +"/multimedia.txt";
+			
+			System.out.println("path => " + path);
+			
 			File file = new File(path);
 			Scanner input = new Scanner(file);
 			
@@ -72,7 +83,7 @@ public class LoadCategoryTreeAction extends ActionSupport {
 				    categoryNode.setChildren(links);
 				    categoryindex++;
 				    nodeindex = 0;
-				    System.out.println("category: " + value);
+				    //System.out.println("category: " + value);
 			    }
 			    else {
 			    	TreeNode linkNode = new TreeNode();
@@ -85,12 +96,14 @@ public class LoadCategoryTreeAction extends ActionSupport {
 			    	linkNode.setIconCls(iconCls);
 			    	links.add(linkNode);
 			    	nodeindex++;
-			    	System.out.println("link: " + nodelabel);
+			    	//System.out.println("link: " + nodelabel);
 			    }
 			}
 			categories.add(categoryNode);
 			input.close();
 		} catch(Exception e) {
+			e.printStackTrace();
+			System.out.println("got the exception: " + e.toString());
 			return ERROR;
 		} finally {
 //			if(conn != null) conn.close();

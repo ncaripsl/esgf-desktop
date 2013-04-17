@@ -57,7 +57,7 @@ Ext.define('MyDesktop.realtimeMemory.views.MemoryChart', {
             yField: ['totMem', 'freeMem'],
             tips: {
                 trackMouse: true,
-                width: 90,
+                width: 110,
                 height: 28,
                 renderer: function(storeItem, item) {
                  for( var i = 0; i < item.series.items.length; i++ ) {
