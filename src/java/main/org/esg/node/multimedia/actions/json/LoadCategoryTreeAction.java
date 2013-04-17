@@ -30,11 +30,11 @@ public class LoadCategoryTreeAction extends ActionSupport {
 			
 			String path = System.getenv("ESGF_HOME");
 			
-			//String path = "/esg/config";
+			//String path = "/esg/";
 			if (path == null)
-				path = "/esg/config/";
+				path = "/esg/";
 			
-			path = path +"/multimedia.txt";
+			path = path +"/config/esgf-desktop/multimedia.txt";
 			
 			System.out.println("path => " + path);
 			
