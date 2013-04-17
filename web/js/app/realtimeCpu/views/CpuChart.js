@@ -57,6 +57,24 @@ Ext.define('MyDesktop.realtimeCpu.views.CpuChart', {
             highlight: false,
             xField: 'timestamp',
             yField: ['loadavg1', 'loadavg5', 'loadavg15'],
+            title: ['Load Avg 1', 'Load Avg 5', 'Load Avg 15'],
+            tips: {
+                trackMouse: true,
+                width: 90,
+                height: 28,
+                renderer: function(storeItem, item) {
+                 for( var i = 0; i < item.series.items.length; i++ ) {
+                          if( item == item.series.items[i] ) {
+                                  itemsPerRec = item.series.items.length /
+ item.storeItem.store.getCount();
+                             J=item.series.yField[ i % itemsPerRec ];
+                          }
+                 }
+                this.update( String(item.value[0])+': ' +
+ String(item.value[1]));
+
+                }
+            },
             //tips: {
             //    trackMouse: true,
             //    width: 180,

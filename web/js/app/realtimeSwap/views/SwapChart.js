@@ -33,7 +33,7 @@ Ext.define('MyDesktop.realtimeSwap.views.SwapChart', {
             position: 'left',
             minimum: 0,
             fields: ['totSwap', 'freeSwap'],
-            title: 'Swap',
+            title: 'Swap (MB)',
             grid: true,
             labelTitle: {
                 font: 'bold 14px Arial'
@@ -55,6 +55,23 @@ Ext.define('MyDesktop.realtimeSwap.views.SwapChart', {
             highlight: false,
             xField: 'timestamp',
             yField: ['totSwap', 'freeSwap'],
+            tips: {
+                trackMouse: true,
+                width: 90,
+                height: 28,
+                renderer: function(storeItem, item) {
+                 for( var i = 0; i < item.series.items.length; i++ ) {
+                          if( item == item.series.items[i] ) {
+                                  itemsPerRec = item.series.items.length /
+ item.storeItem.store.getCount();
+                             J=item.series.yField[ i % itemsPerRec ];
+                          }
+                 }
+                this.update( String(item.value[0])+': ' +
+ String(item.value[1]));
+
+                }
+            },
             title:['Total Swap', 'Free Swap']
         }];
        

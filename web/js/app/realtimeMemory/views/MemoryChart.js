@@ -33,7 +33,7 @@ Ext.define('MyDesktop.realtimeMemory.views.MemoryChart', {
             position: 'left',
             minimum: 0,
             fields: ['totMem', 'freeMem'],
-            title: 'Memory',
+            title: 'Memory (MB)',
             grid: true,
             labelTitle: {
                 font: 'bold 14px Arial'
@@ -55,6 +55,23 @@ Ext.define('MyDesktop.realtimeMemory.views.MemoryChart', {
             highlight: false,
             xField: 'timestamp',
             yField: ['totMem', 'freeMem'],
+            tips: {
+                trackMouse: true,
+                width: 90,
+                height: 28,
+                renderer: function(storeItem, item) {
+                 for( var i = 0; i < item.series.items.length; i++ ) {
+                          if( item == item.series.items[i] ) {
+                                  itemsPerRec = item.series.items.length /
+ item.storeItem.store.getCount();
+                             J=item.series.yField[ i % itemsPerRec ];
+                          }
+                 }
+                this.update( String(item.value[0])+': ' +
+ String(item.value[1]));
+
+                }
+            },
             title:['Total Ram', 'Free Ram']
         }];
        

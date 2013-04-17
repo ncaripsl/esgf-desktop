@@ -119,15 +119,15 @@ Ext.define('MyDesktop.App', {
                     { name: 'CMIP5 Data Statistics', iconCls: 'datastats-shortcut', module: 'datastats-win'},
                     { name: 'Realtime Cpu', iconCls: 'realtimeCpu-shortcut', module: 'realtimeCpu-win' },
                     { name: 'Realtime Memory', iconCls: 'realtimeMemory-shortcut', module: 'realtimeMemory-win' },
-                    { name: 'Realtime Swap', iconCls: 'realtimeMemory-shortcut', module: 'realtimeSwap-win' }, 
-                    { name: 'Multimedia', iconCls: 'multimedia-shortcut', module: 'multimedia-win'},
+                    { name: 'Realtime Swap', iconCls: 'realtimeSwap-shortcut', module: 'realtimeSwap-win' }, 
+                    { name: 'Multimedia', iconCls: 'multimedia-shortcut', module: 'multimedia-win'}
 //                    { name: 'Realtime', iconCls: 'realtime-shortcut', module: 'realtime-win' },
                     //                    { name: 'Grid', iconCls: 'grid-shortcut', module: 'grid-win' },
 //                    { name: 'Chart', iconCls: 'chart-shortcut', module: 'chart-win'},
 //                    { name: 'Download Statistics', iconCls: 'olap-shortcut', module: 'olap-win'},
-                    { name: 'Management Console', iconCls: 'terminal-shortcut', module: 'managementConsole-win'},
-                    { name: 'Rss Feed Viewer', iconCls: 'rssfeeds-shortcut', module: 'rssfeeds-win'},
-                    { name: 'Twitter', iconCls: 'twitter-win-shortcut', module: 'twit-win' }
+                    //{ name: 'Management Console', iconCls: 'terminal-shortcut', module: 'managementConsole-win'},
+                    //{ name: 'Rss Feed Viewer', iconCls: 'rssfeeds-shortcut', module: 'rssfeeds-win'},
+                    //{ name: 'Twitter', iconCls: 'twitter-win-shortcut', module: 'twit-win' }
 //                    { name: 'System Status', iconCls: 'cpu-shortcut', module: 'systemstatus'},
 //                    { name: 'Google Map', iconCls: 'gmap-shortcut', module: 'gmap-win' }
                 ]
