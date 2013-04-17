@@ -88,13 +88,13 @@ tomcat_user=${tomcat_user:-tomcat}
 tomcat_group=${tomcat_group:-$tomcat_user}
 tomcat_install_dir=${CATALINA_HOME:-${install_prefix}/tomcat}
 
+desktop_context_root=esgf-desktop
+desktop_service_app_home=${tomcat_install_dir}/webapps/${desktop_context_root}
+
 init() {
     [ -n "${envfile}" ] && [ -e "${envfile}" ] && source ${envfile} && ((VERBOSE)) && printf "desktop: sourcing environment from: ${envfile} \n"
 
     desktop_dist_url=${esg_dist_url}/esgf-desktop/esgf-desktop.war
-    desktop_context_root=esgf-desktop
-    desktop_service_app_home=${tomcat_install_dir}/webapps/${desktop_context_root}
-    
 }
 
 
@@ -201,6 +201,7 @@ setup_config() {
     [ -x ${esgf_desktop_config_dir}/${multimedia_config_filename%.*} ] && ( ((DEBUG)) && echo "${multimedia_config_filename%.*} file already present [OK] ")  && return 0
     echo -n "Setting up config file(s) for desktop... "
     mkdir -p ${esgf_desktop_config_dir} >& /dev/null
+    ((DEBUG)) && echo "cp -v ${desktop_service_app_home}/WEB-INF/classes/${multimedia_config_filename} ${esgf_desktop_config_dir}/${multimedia_config_filename%.*}"
     cp -v ${desktop_service_app_home}/WEB-INF/classes/${multimedia_config_filename} ${esgf_desktop_config_dir}/${multimedia_config_filename%.*} && echo "(config installed) [OK]" || echo "[FAIL]"
 }
 
