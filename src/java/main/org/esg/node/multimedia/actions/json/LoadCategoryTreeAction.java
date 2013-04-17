@@ -34,7 +34,7 @@ public class LoadCategoryTreeAction extends ActionSupport {
 			if (path == null)
 				path = "/esg/";
 			
-			path = path +"/config/esgf-desktop/multimedia.txt";
+			path = path +"/config/desktop/multimedia.txt";
 			
 			System.out.println("path => " + path);
 			
