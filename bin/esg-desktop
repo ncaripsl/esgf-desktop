@@ -202,7 +202,7 @@ setup_config() {
     echo -n "Setting up config file(s) for desktop... "
     mkdir -p ${esgf_desktop_config_dir} >& /dev/null
     ((DEBUG)) && echo "cp -v ${desktop_service_app_home}/WEB-INF/classes/${multimedia_config_filename} ${esgf_desktop_config_dir}/${multimedia_config_filename%.*}"
-    cp -v ${desktop_service_app_home}/WEB-INF/classes/${multimedia_config_filename} ${esgf_desktop_config_dir}/${multimedia_config_filename%.*} && echo "(config installed) [OK]" || echo "[FAIL]"
+    cp ${desktop_service_app_home}/WEB-INF/classes/${multimedia_config_filename} ${esgf_desktop_config_dir}/${multimedia_config_filename%.*} && echo "(config installed) [OK]" || echo "[FAIL]"
 }
 
 desktop_startup_hook() {
