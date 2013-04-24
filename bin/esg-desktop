@@ -77,6 +77,7 @@ install_prefix=${install_prefix:-"/usr/local"}
 workdir=${workdir:-${installer_home:-"/usr/local/src/esgf"}/workbench/esg}
 esg_root_dir=${esg_root_dir:-${ESGF_HOME:-"/esg"}}
 esg_config_dir=${esg_root_dir}/config
+esgf_desktop_config_dir=${esg_config_dir}/desktop
 install_manifest=${install_manifest:-"${esg_root_dir}/esgf-install-manifest"}
 #--------------
 
@@ -87,13 +88,13 @@ tomcat_user=${tomcat_user:-tomcat}
 tomcat_group=${tomcat_group:-$tomcat_user}
 tomcat_install_dir=${CATALINA_HOME:-${install_prefix}/tomcat}
 
+desktop_context_root=esgf-desktop
+desktop_service_app_home=${tomcat_install_dir}/webapps/${desktop_context_root}
+
 init() {
     [ -n "${envfile}" ] && [ -e "${envfile}" ] && source ${envfile} && ((VERBOSE)) && printf "desktop: sourcing environment from: ${envfile} \n"
 
     desktop_dist_url=${esg_dist_url}/esgf-desktop/esgf-desktop.war
-    desktop_context_root=esgf-desktop
-    desktop_service_app_home=${tomcat_install_dir}/webapps/${desktop_context_root}
-    
 }
 
 
@@ -189,13 +190,24 @@ setup_desktop() {
     [ -e "${target_properties_file}" ] && sed -i 's#^[ ]*\(esgf.footer.version=\).*$#\1'${script_version:1}'  [desktop-'${esgf_desktop_version}']#' ${target_properties_file} && echo -n "." || echo -n "x"
 
     write_desktop_install_log
+    setup_config
     post_desktop_install
     checked_done 0
 
 }
 
+setup_config() {
+    local multimedia_config_filename="multimedia.txt.template"
+    [ -x ${esgf_desktop_config_dir}/${multimedia_config_filename%.*} ] && ( ((DEBUG)) && echo "${multimedia_config_filename%.*} file already present [OK] ")  && return 0
+    echo -n "Setting up config file(s) for desktop... "
+    mkdir -p ${esgf_desktop_config_dir} >& /dev/null
+    ((DEBUG)) && echo "cp -v ${desktop_service_app_home}/WEB-INF/classes/${multimedia_config_filename} ${esgf_desktop_config_dir}/${multimedia_config_filename%.*}"
+    cp ${desktop_service_app_home}/WEB-INF/classes/${multimedia_config_filename} ${esgf_desktop_config_dir}/${multimedia_config_filename%.*} && echo "(config installed) [OK]" || echo "[FAIL]"
+}
+
 desktop_startup_hook() {
     echo "Desktop Startup Hook... :-)"
+    setup_config
 }
 
 post_desktop_install() {
