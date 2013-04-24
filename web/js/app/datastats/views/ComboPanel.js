@@ -151,9 +151,9 @@ Ext.define('MyDesktop.datastats.views.ComboPanel', {
 	   	            	     fields : ['label', 'value'],
 	   	            	     data   : [
 		   	            	        //{"label":"Local (All Projects)", "value":"5A"},
-		   	            	        {"label":"Local (CMIP5)", "value":"5B"},
+		   	            	        {"label":"Local (CMIP5)", "value":"5B"}
 		   	            	        //{"label":"Federation (All Projects)", "value":"5C"},
-		   	            	        {"label":"Federation (CMIP5)", "value":"5D"}
+		   	            	        //{"label":"Federation (CMIP5)", "value":"5D"}
 		   	            	        //{"label":"O", "value":"O"}
 		   	            	    ]
 	   	            	},
