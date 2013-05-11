@@ -28,7 +28,9 @@ public enum SqlQuery {
 	
 	GET_ALL_ENTRIES("SELECT * FROM esgf_dashboard.finaldw where al_id>? and al_id<=(?+?) order by al_id;"),		 
 	GET_ALL_ENTRIESB("SELECT year,month,downloads,files,users,gb, host FROM esgf_dashboard.finaldw_planb order by year, month;"),
-	
+	//GET_ALL_METRICS_NO_HOST("SELECT * FROM esgf_dashboard.sensor_table_datasets_nasajpl;"),
+	//GET_ALL_METRICS_WITH_HOST("SELECT * FROM esgf_dashboard.sensor_table_datasets_nasajpl where host_name='192.168.250.138';"),
+
 	GET_ELAPSED_TIME_IN_TIME_INTERVAL("SELECT timestamp, elapsedTime FROM esgf_dashboard.service_status WHERE timestamp BETWEEN ? AND ?;"),
 	GET_DIMENSION1_VALUE("SELECT DISTINCT dimension1 FROM download;"),
 	GET_DIMENSION2_VALUE("SELECT DISTINCT dimension2 FROM download;"),
