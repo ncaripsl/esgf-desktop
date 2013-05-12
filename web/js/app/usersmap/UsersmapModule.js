@@ -11,7 +11,7 @@ Ext.define('MyDesktop.usersmap.UsersmapModule', {
     init : function() {
         // No launcher means we don't appear on the Start Menu...
         this.launcher = {
-            text: 'Users Map',
+            text: 'Clients map',
             iconCls:'usersMap',
             handler : this.createWindow,
             scope: this
@@ -29,7 +29,7 @@ Ext.define('MyDesktop.usersmap.UsersmapModule', {
         	
             win = desktop.createWindow({
             	id              : 'usersmap-win',
-                title           : 'Users Map',
+                title           : 'Remote clients Map',
 //                width           : 1290,
                 height          : 768,
                 width           : 1043,
