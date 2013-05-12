@@ -45,6 +45,11 @@ Ext.define('MyDesktop.App', {
         'MyDesktop.realtimeMemory.RealtimeMemoryModule',
         'MyDesktop.realtimeSwap.RealtimeSwapModule',
         'MyDesktop.multimedia.MultimediaModule',
+        'MyDesktop.availability.AvailabilityModule',
+        'MyDesktop.users.UsersModule',
+        'MyDesktop.deploy.DeployModule',
+        'MyDesktop.usersmap.UsersmapModule',
+        
 //        'MyDesktop.realtime.RealtimeModule',
 //        'MyDesktop.terminal.TerminalModule',
 //        'MyDesktop.video.VideoWindow',
@@ -87,6 +92,11 @@ Ext.define('MyDesktop.App', {
             new MyDesktop.realtimeMemory.RealtimeMemoryModule(),
             new MyDesktop.realtimeSwap.RealtimeSwapModule(),
             new MyDesktop.multimedia.MultimediaModule(),
+            new MyDesktop.availability.AvailabilityModule(),
+            new MyDesktop.users.UsersModule(),
+            new MyDesktop.deploy.DeployModule(),
+            new MyDesktop.usersmap.UsersmapModule(),
+
 //            new MyDesktop.realtime.RealtimeModule(),
 //            new MyDesktop.video.VideoWindow(),
 //            new MyDesktop.portal.PortalModule(),
@@ -117,9 +127,13 @@ Ext.define('MyDesktop.App', {
                 data: [
                     { name: 'Dashboard', iconCls: 'dash-win-shortcut', module: 'dash-win' },
                     { name: 'CMIP5 Data Statistics', iconCls: 'datastats-shortcut', module: 'datastats-win'},
-                    { name: 'Realtime Cpu', iconCls: 'realtimeCpu-shortcut', module: 'realtimeCpu-win' },
-                    { name: 'Realtime Memory', iconCls: 'realtimeMemory-shortcut', module: 'realtimeMemory-win' },
-                    { name: 'Realtime Swap', iconCls: 'realtimeSwap-shortcut', module: 'realtimeSwap-win' }, 
+                    { name: 'Availability', iconCls: 'availability-shortcut', module: 'availability-win' },
+                    { name: 'Users', iconCls: 'users-shortcut', module: 'users-win' },
+                    { name: 'Deployment', iconCls: 'deployment-shortcut', module: 'deploy-win' },
+                    { name: 'Users Map', iconCls: 'usersMap-shortcut', module: 'usersmap-win'},
+                    //{ name: 'Realtime Cpu', iconCls: 'realtimeCpu-shortcut', module: 'realtimeCpu-win' },
+                    //{ name: 'Realtime Memory', iconCls: 'realtimeMemory-shortcut', module: 'realtimeMemory-win' },
+                    //{ name: 'Realtime Swap', iconCls: 'realtimeSwap-shortcut', module: 'realtimeSwap-win' }, 
                     { name: 'Multimedia', iconCls: 'multimedia-shortcut', module: 'multimedia-win'}
 //                    { name: 'Realtime', iconCls: 'realtime-shortcut', module: 'realtime-win' },
                     //                    { name: 'Grid', iconCls: 'grid-shortcut', module: 'grid-win' },
@@ -172,9 +186,21 @@ Ext.define('MyDesktop.App', {
         var ret = this.callParent();
 
         return Ext.apply(ret, {
-            quickStart: [
-                { name: 'Management Console', iconCls: 'terminal', module: 'managementConsole-win' }
-            ],
+//            quickStart: [
+//                { name: 'Management Console', iconCls: 'terminal', module: 'managementConsole-win' }
+                
+                quickStart: [
+                             { name: 'Realtime Cpu', iconCls: 'realtimeCpu', module: 'realtimeCpu-win' },
+                             { name: 'Realtime Memory', iconCls: 'realtimeMemory', module: 'realtimeMemory-win' },
+                             { name: 'Realtime Swap', iconCls: 'realtimeSwap', module: 'realtimeSwap-win' }, 
+                             { name: 'Availability', iconCls: 'availability', module: 'availability-win' },
+                             { name: 'Users', iconCls: 'users', module: 'users-win' },
+                             { name: 'Deployment', iconCls: 'deployment', module: 'deploy-win' },
+                             { name: 'Users Map', iconCls: 'usersMap', module: 'usersmap-win'}
+                             /*,
+                             { name: 'Management Console', iconCls: 'terminal', module: 'managementConsole-win' }*/
+                         ],                
+//            ],
             trayItems: [
                 { xtype: 'trayclock', flex: 1 }
             ]

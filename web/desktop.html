@@ -10,6 +10,10 @@
     <!-- CUSTOM CSS -->
     <link rel="stylesheet" type="text/css" href="css/desktop/desktop.css" />
     <link rel="stylesheet" type="text/css" href="css/rssviewer/rssviewer.css" />
+    
+    <!-- GOOGLE API -->
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    
     <!-- <link rel="stylesheet" type="text/css" href="css/monitoring/monitoring.css" /> -->
     <!--  <link rel="stylesheet" type="text/css" href="css/portal/portal.css" /> -->
     <!--   <link rel="stylesheet" type="text/css" href="css/ophidia/ophidia.css" /> -->
@@ -76,6 +80,18 @@
 		/** realtime cpu chart start **/
 		var cpuStopCondition = true;
 		/** realtime cpu chart end **/
+		
+		/** federation info start **/
+        var availabilityMarkers = [];
+        var usersMarkers = [];
+        var nodetypeMarkers = [];
+        var availabilitycontrollength = 0;
+        var deploymentcontrollength = 0;
+        /** federation info end **/
+        
+        /** usersmap start **/
+		var usersMarkers = [];
+		/** usersmap end**/
 	    
 	    var allClientsDownloadsMarkers = [];
 		

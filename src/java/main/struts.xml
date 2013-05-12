@@ -42,6 +42,17 @@
 	<include file="org/esg/node/datastats/actions/json/datastatsActionsJson.xml" />
 	<include file="org/esg/node/datastats/actions/stream/datastatsActionsStream.xml" />
 	
+	<!-- USERSMAP -->
+    <include file="org/esg/node/usersmap/actions/json/usersmapActionsJson.xml" />
+	
+	
+	 <!-- FEDERATION INFO -->
+    <include file="org/esg/node/federationinfo/actions/json/hostInfoActionsJson.xml" />
+    <include file="org/esg/node/federationinfo/availability/actions/json/hostAvailabilityActionsJson.xml" />
+    <include file="org/esg/node/federationinfo/deployment/actions/json/hostDeploymentActionsJson.xml" />
+    <include file="org/esg/node/federationinfo/users/actions/json/hostUsersActionsJson.xml" />
+    <include file="org/esg/node/federationinfo/actions/stream/hostInfoActionsStream.xml" />
+	
 	<!-- MANAGEMENTCONSOLE -->
 	<include file="org/esg/node/managementConsole/actions/json/managementConsoleActionsJson.xml" />
 	<include file="org/esg/node/managementConsole/actions/stream/managementConsoleActionsStream.xml" />

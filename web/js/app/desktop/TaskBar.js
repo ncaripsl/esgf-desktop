@@ -93,7 +93,7 @@ Ext.define('Ext.ux.desktop.TaskBar', {
     getQuickStart: function () {
         var me = this, ret = {
             minWidth: 20,
-            width: 60,
+            width: 180,
             items: [],
             enableOverflow: true
         };

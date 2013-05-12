@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<!-- AUTHOR: CMCC -->
+
+<struts>
+
+	<package name="hostInfoActionsStream" namespace="/hostInfoActionsStream" extends="struts-default">
+		
+		<global-exception-mappings>
+			<exception-mapping result="error" exception="java.lang.Exception" />
+		</global-exception-mappings>
+		
+		<action name="AvailabilityCSVAction" class="org.esg.node.federationinfo.actions.stream.GetHostAvailabilityCSVAction">
+			<result name="success" type="stream">
+			  <param name="contentType">text/csv</param>
+			  <param name="inputName">stream</param>
+			  <param name="contentDisposition">filename="availability.txt"</param>
+			  <param name="bufferSize">1024</param>
+			</result>
+		</action>
+		
+		<action name="RegUsersCSVAction" class="org.esg.node.federationinfo.actions.stream.GetHostRegUsersCSVAction">
+			<result name="success" type="stream">
+			  <param name="contentType">text/csv</param>
+			  <param name="inputName">stream</param>
+			  <param name="contentDisposition">filename="regusers.txt"</param>
+			  <param name="bufferSize">1024</param>
+			</result>
+		</action>
+		
+		<action name="NodeTypeCSVAction" class="org.esg.node.federationinfo.actions.stream.GetHostNodeTypeCSVAction">
+			<result name="success" type="stream">
+			  <param name="contentType">text/csv</param>
+			  <param name="inputName">stream</param>
+			  <param name="contentDisposition">filename="nodetype.txt"</param>
+			  <param name="bufferSize">1024</param>
+			</result>
+		</action>
+		
+	</package>
+	
+</struts>

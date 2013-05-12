@@ -447,6 +447,32 @@ background-image:url(../../img/realtime/realtime-shortcut48x48.gif) !important;
 .twitter-multimedia {
         background-image: url(../../img/multimedia/Twitter.png ) !important;
 }
-
+.availability {
+        background-image:url(../../img/federation_info/availability/availability_16x16.png) !important;
+}
+.availability-shortcut {
+        background-image:url(../../img/federation_info/availability/radar-screen-icon_48x48.png) !important;
+}
+.users {
+        background-image:url(../../img/federation_info/users/users_22x22.png) !important;
+}
+.users-shortcut {
+        background-image:url(../../img/federation_info/users/users_48x48.png) !important;
+}
+.deployment {
+        background-image:url(../../img/federation_info/deploy/deployment_16x16.png) !important;
+}
+.deployment-shortcut {
+        background-image:url(../../img/federation_info/deploy/deployment_48x48.png) !important;
+}
+.peergroup {
+        background-image: url(../../img/federation_info/agt_web.png ) !important;
+}
+.usersMap {
+        background-image:url(../../img/usersmap/usersmap_16x16.png) !important;
+}
+.usersMap-shortcut {
+        background-image:url(../../img/usersmap/usersmap_48x48.png) !important;
+}
 
 /** END **/
