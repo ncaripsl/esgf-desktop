@@ -10,13 +10,15 @@ public class HostDeployment implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	private Integer hostid            = null;
-	private String  hostalias         = null;
-	private String  hostname          = null;
-	private Number  latitude          = null;
-	private Number  longitude         = null;
-	private String  city              = null;
-	private Integer nodetype          = null;
+	private Integer hostid    = null;
+	private String  hostalias = null;
+	private String  hostname  = null;
+	private Number  latitude  = null;
+	private Number  longitude = null;
+	private String  city      = null;
+	private Integer nodetype  = null;
+	private String  swrelease = null;
+	private String  swversion = null;
 	
 	public Integer getHostid() {
 		return hostid;
@@ -59,5 +61,17 @@ public class HostDeployment implements Serializable {
 	}
 	public void setCity(String city) {
 		this.city = city;
+	}
+	public String getSwrelease() {
+		return swrelease;
+	}
+	public void setSwrelease(String swrelease) {
+		this.swrelease = swrelease;
+	}
+	public String getSwversion() {
+		return swversion;
+	}
+	public void setSwversion(String swversion) {
+		this.swversion = swversion;
 	}
 }

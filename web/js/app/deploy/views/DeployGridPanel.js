@@ -18,10 +18,12 @@ Ext.define('MyDesktop.deploy.views.DeployGridPanel', {
         this.title       = 'Hosts List';
         this.columns     = [
 //	        {header: 'Visible', dataIndex: 'dimension', flex: 3, id: 'secondColumn', sortable: false},
-	        {header: 'Host Name', dataIndex: 'hostname',  flex: 2, id: 'nameDeployColumn', sortable: false},
-	        {header: 'Alias',     dataIndex: 'hostalias', flex: 2, id: 'ipDeployColumn',   sortable: true},
-	        {header: 'City',      dataIndex: 'city',      flex: 1, id: 'cityDeployColumn', sortable: false},
-	        {header: 'Node Type', dataIndex: 'nodetype',  flex: 1, id: 'nodetypeColumn',   sortable: true, renderer : this.nodeType}
+	        {header: 'Host Name',        dataIndex: 'hostname',  flex: 1, id: 'nameDeployColumn',      sortable: true},
+	        {header: 'Alias',            dataIndex: 'hostalias', flex: 1, id: 'ipDeployColumn',        sortable: true},
+	        {header: 'City',             dataIndex: 'city',      flex: 1, id: 'cityDeployColumn',      sortable: true},
+	        {header: 'Node Type',        dataIndex: 'nodetype',  flex: 1, id: 'nodetypeColumn',        sortable: true, renderer : this.nodeType},
+	        {header: 'Software Version', dataIndex: 'swversion', flex: 2, id: 'swversionDeployColumn', sortable: true},
+	        {header: 'Software Release', dataIndex: 'swrelease', flex: 1, id: 'swreleaseDeployColumn', sortable: true}
 	    ];
         this.tbar        = [
             '->',

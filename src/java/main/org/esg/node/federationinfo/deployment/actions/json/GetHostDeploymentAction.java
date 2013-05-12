@@ -50,6 +50,8 @@ public class GetHostDeploymentAction extends ActionSupport {
 				host.setLatitude(rs.getBigDecimal("latitude"));
 				host.setLongitude(rs.getBigDecimal("longitude"));
 				host.setNodetype(rs.getInt("nodetype"));
+				host.setSwversion(rs.getString("swversion"));
+				host.setSwrelease(rs.getString("swrelease"));
 				hostsList.add(host);
 			}
 			rs.close();

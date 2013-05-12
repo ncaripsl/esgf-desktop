@@ -18,11 +18,11 @@ Ext.define('MyDesktop.availability.views.AvailabilityGridPanel', {
         this.title       = 'Hosts List';
         this.columns     = [
 //	        {header: 'Visible', dataIndex: 'dimension', flex: 3, id: 'secondColumn', sortable: false},
-			{header: 'Host Name',    dataIndex: 'hostname',    flex: 2, id: 'nameColumn',    sortable: false},
-	        {header: 'Alias',        dataIndex: 'hostalias',   flex: 2, id: 'ipColumn',      sortable: false},
-	        {header: 'City',         dataIndex: 'city',        flex: 1, id: 'fiveminColumn', sortable: false},
-	        {header: 'Elapsed Time', dataIndex: 'elapsedtime', flex: 1, id: 'dayColumn',     sortable: false, renderer : this.timeChange},
-	        {header: 'Status (last 5 min)',       dataIndex: 'status',      flex: 1, id: 'hourColumn',    sortable: false, renderer : this.statusChange}
+			{header: 'Host Name',    dataIndex: 'hostname',    flex: 2, id: 'nameColumn',    sortable: true},
+	        {header: 'Alias',        dataIndex: 'hostalias',   flex: 2, id: 'ipColumn',      sortable: true},
+	        {header: 'City',         dataIndex: 'city',        flex: 1, id: 'fiveminColumn', sortable: true},
+	        {header: 'Elapsed Time', dataIndex: 'elapsedtime', flex: 1, id: 'dayColumn',     sortable: true, renderer : this.timeChange},
+	        {header: 'Status (last 5 min)',       dataIndex: 'status',      flex: 1, id: 'hourColumn',    sortable: true, renderer : this.statusChange}
 	    ];
         this.tbar        = [
             '->',

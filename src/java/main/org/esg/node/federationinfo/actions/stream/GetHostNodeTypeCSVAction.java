@@ -43,7 +43,7 @@ public class GetHostNodeTypeCSVAction extends ActionSupport {
 			CsvWriter csv = new CsvWriter();
 			csv.setDelimiter('|');
 			csv.writeRecord(new String[] {"Peer Group: " + projectName});
-			csv.writeRecord(new String[] { "Alias", "Host Name", "City", "Node Type" });
+			csv.writeRecord(new String[] { "Alias", "Host Name", "City", "Node Type", "Software Version", "Software release" });
 			
 			while (rs.next()) {
 				csv.write(rs.getString("ip"));
@@ -61,6 +61,9 @@ public class GetHostNodeTypeCSVAction extends ActionSupport {
 	    		if ((nodetype & 4) > 0)
 	    			nodetype_str = nodetype_str + "Data ";
 				csv.write(nodetype_str);
+				
+				csv.write(rs.getString("swversion"));
+				csv.write(rs.getString("swrelease"));
 				csv.endRecord();
 			}
 			rs.close();

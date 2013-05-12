@@ -11,6 +11,8 @@ Ext.define('MyDesktop.deploy.models.DeployModel', {
       'latitude',
       'longitude',
       'city',
-      'nodetype'
+      'nodetype',
+      'swrelease',
+      'swversion'
     ]
 });

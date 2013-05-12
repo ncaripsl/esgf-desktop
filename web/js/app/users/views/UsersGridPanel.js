@@ -18,10 +18,10 @@ Ext.define('MyDesktop.users.views.UsersGridPanel', {
         this.title       = 'Hosts List';
         this.columns     = [
 //	        {header: 'Visible', dataIndex: 'dimension', flex: 3, id: 'secondColumn', sortable: false},
-	        {header: 'Host Name',        dataIndex: 'hostname',  flex: 2, id: 'nameUsersColumn',  sortable: false},
-	        {header: 'Alias',            dataIndex: 'hostalias', flex: 2, id: 'ipUsersColumn',    sortable: false},
-	        {header: 'City',             dataIndex: 'city',      flex: 1, id: 'cityUsersColumn',  sortable: false},
-	        {header: 'Registered Users', dataIndex: 'regusers',  flex: 1, id: 'regUsersColumn',   sortable: false, renderer : this.pctChange}
+	        {header: 'Host Name',        dataIndex: 'hostname',  flex: 2, id: 'nameUsersColumn',  sortable: true},
+	        {header: 'Alias',            dataIndex: 'hostalias', flex: 2, id: 'ipUsersColumn',    sortable: true},
+	        {header: 'City',             dataIndex: 'city',      flex: 1, id: 'cityUsersColumn',  sortable: true},
+	        {header: 'Registered Users', dataIndex: 'regusers',  flex: 1, id: 'regUsersColumn',   sortable: true, renderer : this.pctChange}
 	    ];
         this.tbar        = [
             '->',

@@ -47,21 +47,21 @@ public enum SqlQuery {
     			"GROUP BY h.id, h.name, h.ip, h.city, h.latitude, h.longitude, h.status, h.elapsedtime " +
     			"ORDER BY h.name;"),
     			
-    GET_HOST_DEPLOYMENT_BY_PROJECT_ID("SELECT h.id, h.ip, h.name, h.city, h.latitude, h.longitude, h.nodetype " +
+    GET_HOST_DEPLOYMENT_BY_PROJECT_ID("SELECT h.id, h.ip, h.name, h.city, h.latitude, h.longitude, h.nodetype, h.swversion, h.swrelease " +
     			"FROM esgf_dashboard.host h " +
     			"INNER JOIN esgf_dashboard.service_instance s ON s.idhost=h.id " +
           		"INNER JOIN esgf_dashboard.uses u ON u.idserviceinstance=s.id " +
     			"WHERE u.idproject=? " +
     			"AND u.enddate IS NULL " +
-    			"GROUP BY h.id, h.name, h.ip, h.city, h.latitude, h.longitude, h.nodetype " +
+    			"GROUP BY h.id, h.name, h.ip, h.city, h.latitude, h.longitude, h.nodetype, h.swversion, h.swrelease " +
     			"ORDER BY h.nodetype DESC;"),
     		
-    GET_ALL_HOST_DEPLOYMENT("SELECT h.id, h.ip, h.name, h.city, h.latitude, h.longitude, h.nodetype " +
+    GET_ALL_HOST_DEPLOYMENT("SELECT h.id, h.ip, h.name, h.city, h.latitude, h.longitude, h.nodetype, h.swversion, h.swrelease " +
     	    	"FROM esgf_dashboard.host h " +
     	    	"INNER JOIN esgf_dashboard.service_instance s ON s.idhost=h.id " +
     	    	"INNER JOIN esgf_dashboard.uses u ON u.idserviceinstance=s.id " +
     	    	"WHERE u.enddate IS NULL " +
-    	    	"GROUP BY h.id, h.name, h.ip, h.city, h.latitude, h.longitude, h.nodetype " +
+    	    	"GROUP BY h.id, h.name, h.ip, h.city, h.latitude, h.longitude, h.nodetype, h.swversion, h.swrelease " +
     	    	"ORDER BY h.nodetype DESC;");
 				 
 	private final String sql;
