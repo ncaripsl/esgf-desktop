@@ -72,7 +72,7 @@ Ext.define('MyDesktop.users.UsersModule', {
             });
         }
         win.show();
-        win.on('beforerender', this.loadContent());
+//        win.on('beforerender', this.loadContent());
         return win;
     },
 

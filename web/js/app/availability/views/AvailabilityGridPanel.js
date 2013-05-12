@@ -21,8 +21,8 @@ Ext.define('MyDesktop.availability.views.AvailabilityGridPanel', {
 			{header: 'Host Name',    dataIndex: 'hostname',    flex: 2, id: 'nameColumn',    sortable: false},
 	        {header: 'Alias',        dataIndex: 'hostalias',   flex: 2, id: 'ipColumn',      sortable: false},
 	        {header: 'City',         dataIndex: 'city',        flex: 1, id: 'fiveminColumn', sortable: false},
-	        {header: 'Status (last 5 min)',       dataIndex: 'status',      flex: 1, id: 'hourColumn',    sortable: false, renderer : this.statusChange},
-	        {header: 'Elapsed Time', dataIndex: 'elapsedtime', flex: 1, id: 'dayColumn',     sortable: false, renderer : this.timeChange}
+	        {header: 'Elapsed Time', dataIndex: 'elapsedtime', flex: 1, id: 'dayColumn',     sortable: false, renderer : this.timeChange},
+	        {header: 'Status (last 5 min)',       dataIndex: 'status',      flex: 1, id: 'hourColumn',    sortable: false, renderer : this.statusChange}
 	    ];
         this.tbar        = [
             '->',
@@ -45,10 +45,18 @@ Ext.define('MyDesktop.availability.views.AvailabilityGridPanel', {
      * @param {Object} val
      */
     statusChange: function(val, metaData) {
-        if(val == 1)
-    		return 'OK';
-        else
-        	return 'NOT OK';
+    	var colour = '';
+    	var value  = '';
+        if(val == 1) {
+        	colour = '0, 255, 0';
+        	value  = 'OK';
+        }
+        else {
+        	colour = '255, 0, 0';
+        	value  = 'NOT OK';
+        }
+        metaData.style+='background-color: rgb(' + colour + ');';
+        return '<span>' + value + '</span>';
     },
     
     /**

@@ -11,7 +11,7 @@ Ext.define('MyDesktop.usersmap.UsersmapModule', {
     init : function() {
         // No launcher means we don't appear on the Start Menu...
         this.launcher = {
-            text: 'Clients map',
+            text: 'Users Map',
             iconCls:'usersMap',
             handler : this.createWindow,
             scope: this
@@ -29,7 +29,7 @@ Ext.define('MyDesktop.usersmap.UsersmapModule', {
         	
             win = desktop.createWindow({
             	id              : 'usersmap-win',
-                title           : 'Remote clients Map',
+                title           : 'Users Map',
 //                width           : 1290,
                 height          : 768,
                 width           : 1043,
@@ -37,15 +37,20 @@ Ext.define('MyDesktop.usersmap.UsersmapModule', {
                 animCollapse    : false,
                 constrainHeader : true,
                 layout          : 'fit',
-                items: [/*{
+                /*items: [{
                     xtype   : 'panel',
                     layout  : 'border',
                     border  : false,
                     padding : 5,
                     items: [
-                            projectTreePanel,*/
+                            projectTreePanel,
                             settingsPanel]
-//                }]
+                }]*/
+                items           : [settingsPanel],
+                listeners : {
+                	scope  : this,
+                	resize : this.resizeMap
+                }
             });
         }
         win.show();
@@ -61,6 +66,12 @@ Ext.define('MyDesktop.usersmap.UsersmapModule', {
     		// expand root to load its content
         	projectTree.getRootNode().expand();
 //        	projectTree.getSelectionModel().select(projectTree.getRootNode());
+    	}
+    },
+    
+    resizeMap : function() {
+    	if(Ext.getCmp('usersMap').getMap()) {
+    		google.maps.event.trigger(Ext.getCmp('usersMap').getMap(), "resize");
     	}
     }
 });
