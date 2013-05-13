@@ -147,7 +147,7 @@ Ext.define('MyDesktop.App', {
                 ]
             }),
 
-            wallpaper: 'img/desktop/wallpapers/wall8.jpg',
+            wallpaper: 'img/desktop/wallpapers/rockawaybeach_ca.jpg',
             wallpaperStretch: true
         });
     },

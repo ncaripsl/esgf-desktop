@@ -126,6 +126,7 @@ Ext.define('MyDesktop.Settings', {
                         child('blue-sea-waves.png'),
                         child('blue-lake-mountains.png'),
                         child('must-visit.png'),
+                        child('rockawaybeach_ca.jpg'),
                         child('california-ocean.png')
                     ]
                 }
