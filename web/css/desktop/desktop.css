@@ -474,5 +474,15 @@ background-image:url(../../img/realtime/realtime-shortcut48x48.gif) !important;
 .usersMap-shortcut {
         background-image:url(../../img/usersmap/usersmap_48x48.png) !important;
 }
+.sensorstats {
+		background-image:url(../../img/sensorstats/Earth-Scan-icon_16x16.png) !important;
+}
+.sensorstats-shortcut {
+		background-image:url(../../img/sensorstats/Earth-Scan-icon_48x48.png) !important;
+}
+.sensors {
+		background-image:url(../../img/sensorstats/Line-chart-icon_16x16.png) !important;
+}
+
 
 /** END **/

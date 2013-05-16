@@ -49,6 +49,7 @@ Ext.define('MyDesktop.App', {
         'MyDesktop.users.UsersModule',
         'MyDesktop.deploy.DeployModule',
         'MyDesktop.usersmap.UsersmapModule',
+        'MyDesktop.sensorstats.SensorstatsModule',
         
 //        'MyDesktop.realtime.RealtimeModule',
 //        'MyDesktop.terminal.TerminalModule',
@@ -96,7 +97,8 @@ Ext.define('MyDesktop.App', {
             new MyDesktop.users.UsersModule(),
             new MyDesktop.deploy.DeployModule(),
             new MyDesktop.usersmap.UsersmapModule(),
-
+            new MyDesktop.sensorstats.SensorstatsModule(),
+            
 //            new MyDesktop.realtime.RealtimeModule(),
 //            new MyDesktop.video.VideoWindow(),
 //            new MyDesktop.portal.PortalModule(),
@@ -125,12 +127,13 @@ Ext.define('MyDesktop.App', {
             shortcuts: Ext.create('Ext.data.Store', {
                 model: 'Ext.ux.desktop.ShortcutModel',
                 data: [
-                    { name: 'Dashboard', iconCls: 'dash-win-shortcut', module: 'dash-win' },
+                    //{ name: 'Dashboard', iconCls: 'dash-win-shortcut', module: 'dash-win' },
                     { name: 'CMIP5 Data Stats', iconCls: 'datastats-shortcut', module: 'datastats-win'},
                     { name: 'Availability', iconCls: 'availability-shortcut', module: 'availability-win' },
                     { name: 'Users', iconCls: 'users-shortcut', module: 'users-win' },
                     { name: 'Deployment', iconCls: 'deployment-shortcut', module: 'deploy-win' },
                     { name: 'Clients map', iconCls: 'usersMap-shortcut', module: 'usersmap-win'},
+                    { name: 'Sensor Stats', iconCls: 'sensorstats-shortcut', module: 'sensorstats-win'},
                     //{ name: 'Realtime Cpu', iconCls: 'realtimeCpu-shortcut', module: 'realtimeCpu-win' },
                     //{ name: 'Realtime Memory', iconCls: 'realtimeMemory-shortcut', module: 'realtimeMemory-win' },
                     //{ name: 'Realtime Swap', iconCls: 'realtimeSwap-shortcut', module: 'realtimeSwap-win' }, 
@@ -196,7 +199,8 @@ Ext.define('MyDesktop.App', {
                              { name: 'Availability', iconCls: 'availability', module: 'availability-win' },
                              { name: 'Users', iconCls: 'users', module: 'users-win' },
                              { name: 'Deployment', iconCls: 'deployment', module: 'deploy-win' },
-                             { name: 'Clients map', iconCls: 'usersMap', module: 'usersmap-win'}
+                             { name: 'Clients map', iconCls: 'usersMap', module: 'usersmap-win'},
+                             { name: 'Sensor Stats', iconCls: 'sensorstats', module: 'sensorstats-win' }
                              /*,
                              { name: 'Management Console', iconCls: 'terminal', module: 'managementConsole-win' }*/
                          ],                

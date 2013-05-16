@@ -44,7 +44,9 @@
 	
 	<!-- USERSMAP -->
     <include file="org/esg/node/usersmap/actions/json/usersmapActionsJson.xml" />
-	
+		
+	<!-- SENSOR STATS -->
+    <include file="org/esg/node/sensorstats/actions/json/sensorstatsActionsJson.xml" />
 	
 	 <!-- FEDERATION INFO -->
     <include file="org/esg/node/federationinfo/actions/json/hostInfoActionsJson.xml" />
