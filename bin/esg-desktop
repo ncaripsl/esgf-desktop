@@ -175,20 +175,6 @@ setup_desktop() {
 
     popd >& /dev/null
 
-    #Set up the default content
-    local target_properties_file=${esg_config_dir}/messages.properties
-
-    if [ ! -e "${target_properties_file}" ] || ((force_install)) ; then
-        [ -e "${target_properties_file}" ] && cp ${target_properties_file} ${target_properties_file}.bak        
-        cp -v ${desktop_service_app_home}/WEB-INF/classes/messages.properties ${esg_config_dir}
-        sed -i 's#^[ ]*\(esgf.datanode.name=\).*$#\1'${node_short_name}'#'   ${target_properties_file} && echo -n ":" || echo -n "8"
-        sed -i 's#^[ ]*\(esgf.homepage.institutionLogo=\).*$#\1'${institution_logo:-"/images/p2p_default_logo.png"}'#'   ${target_properties_file} && echo -n "-" || echo -n "."
-        sed -i 's#^[ ]*\(esgf.homepage.about=\).*$#\1Please Enter Information about your organization here#' ${target_properties_file} && echo -n ")" || echo -n "("
-    fi
-    
-    #always change the footer to match the current version
-    [ -e "${target_properties_file}" ] && sed -i 's#^[ ]*\(esgf.footer.version=\).*$#\1'${script_version:1}'  [desktop-'${esgf_desktop_version}']#' ${target_properties_file} && echo -n "." || echo -n "x"
-
     write_desktop_install_log
     setup_config
     post_desktop_install
