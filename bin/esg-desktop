@@ -183,16 +183,20 @@ setup_desktop() {
 }
 
 setup_config() {
-    local multimedia_config_filename="multimedia.txt.template"
-    [ -x ${esgf_desktop_config_dir}/${multimedia_config_filename%.*} ] && ( ((DEBUG)) && echo "${multimedia_config_filename%.*} file already present [OK] ")  && return 0
     echo -n "Setting up config file(s) for desktop... "
+    local multimedia_config_filename="multimedia.txt.template"
+    if [ -e ${esgf_desktop_config_dir}/${multimedia_config_filename%.*} ] && ((!force_install)); then
+        ((DEBUG)) && echo "${multimedia_config_filename%.*} file already present "
+        echo ":-) "
+        return 0
+    fi
     mkdir -p ${esgf_desktop_config_dir} >& /dev/null
     ((DEBUG)) && echo "cp -v ${desktop_service_app_home}/WEB-INF/classes/${multimedia_config_filename} ${esgf_desktop_config_dir}/${multimedia_config_filename%.*}"
-    cp ${desktop_service_app_home}/WEB-INF/classes/${multimedia_config_filename} ${esgf_desktop_config_dir}/${multimedia_config_filename%.*} && echo "(config installed) [OK]" || echo "[FAIL]"
+    cp ${desktop_service_app_home}/WEB-INF/classes/${multimedia_config_filename} ${esgf_desktop_config_dir}/${multimedia_config_filename%.*} && echo "[OK]" || echo "[FAIL]"
 }
 
 desktop_startup_hook() {
-    echo "Desktop Startup Hook... :-)"
+    echo -n "Desktop Startup Hook: "
     setup_config
 }
 
