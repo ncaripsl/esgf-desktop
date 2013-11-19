@@ -17,14 +17,49 @@
 	
 	<!-- RSSFEED -->
 	<include file="org/esg/node/rssfeeds/actions/inputstream/rssfeedsActionsInputStream.xml" />
-	<include file="org/esg/node/rssfeeds/actions/json/rssfeedsActionsJson.xml" />
+	<include file="org/esg/node/rssfeeds/actions/json/rssfeedsActionsJson.xml" /> 
 	
 	<!-- OLAPMODULE -->
 	<include file="org/esg/node/olap/actions/json/olapActionsJson.xml" />
 	<include file="org/esg/node/olap/actions/stream/olapActionsStream.xml" />
+
+	<!-- REALTIME CPU-->
+	<include file="org/esg/node/realtimeCpu/actions/json/realtimeLoadAvgActionsJson.xml" />
+	
+	<!-- REALTIME MEMORY -->
+	<include file="org/esg/node/realtimeMemory/actions/json/realtimeMemoryActionsJson.xml" />
+	
+	<!-- REALTIME SWAP -->
+	<include file="org/esg/node/realtimeSwap/actions/json/realtimeSwapActionsJson.xml" />
+	
+	<!-- MULTIMEDIA -->
+	<include file="org/esg/node/multimedia/actions/json/multimediaActionsJson.xml" />
+	
+	<!-- DATASTATS -->
+	<include file="org/esg/node/datastats/actions/json/datastatsActionsJson.xml" />
+	<include file="org/esg/node/datastats/actions/stream/datastatsActionsStream.xml" />
+	
+	<!-- USERSMAP -->
+    <include file="org/esg/node/usersmap/actions/json/usersmapActionsJson.xml" />
+		
+	<!-- SENSOR STATS -->
+    <include file="org/esg/node/sensorstats/actions/json/sensorstatsActionsJson.xml" />
+	
+	 <!-- FEDERATION INFO -->
+    <include file="org/esg/node/federationinfo/actions/json/hostInfoActionsJson.xml" />
+    <include file="org/esg/node/federationinfo/availability/actions/json/hostAvailabilityActionsJson.xml" />
+    <include file="org/esg/node/federationinfo/deployment/actions/json/hostDeploymentActionsJson.xml" />
+    <include file="org/esg/node/federationinfo/users/actions/json/hostUsersActionsJson.xml" />
+    <include file="org/esg/node/federationinfo/actions/stream/hostInfoActionsStream.xml" />
 	
 	<!-- MANAGEMENTCONSOLE -->
 	<include file="org/esg/node/managementConsole/actions/json/managementConsoleActionsJson.xml" />
 	<include file="org/esg/node/managementConsole/actions/stream/managementConsoleActionsStream.xml" />
-	
+
+	<!-- REST SERVICES -->
+    <include file="org/esg/node/RESTservices/realtime/actions/json/RESTrealtimeActionsJson.xml" />
+    <include file="org/esg/node/RESTservices/hostinfo/actions/json/RESThostinfoActionsJson.xml" />
+    <include file="org/esg/node/RESTservices/sensorstats/actions/json/RESTsensorActionsJson.xml" />
+    <include file="org/esg/node/RESTservices/datastats/actions/json/RESTdatastatsActionsJson.xml" />
+     	
 </struts>
