@@ -101,7 +101,7 @@ xwork-core-2.1.6.jar
 
   <dependencies>
     <!-- CORE ESGF NODE MANAGER DEPENDENCY LIBS -->
-    <dependency org="org.esgf" name="esgf-node-manager" rev="0.5.7"/>
+    <dependency org="org.esgf" name="esgf-node-manager" rev="latest.milestone"/>
     <!-- <dependency org="org.esgf" name="esgf-node-manager" rev="latest.milestone"/> -->
 
     <!-- CORE ESGF DEPENDENCY LIBS -->
